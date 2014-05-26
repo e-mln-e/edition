@@ -5,7 +5,7 @@
 }
 .cbp-spmenu.sommaire, .cbp-spmenu.attributs{
     position:absolute;
-    background:#e4e4e4;
+    background:#f0f0f0;
 }
 
 .cbp-spmenu h3 {
@@ -45,7 +45,7 @@
     height:inherit;
 }
 .cbp-spmenu-vertical.attributs{
-    width:400px;
+    width:300px;
     z-index:995;
 }
 .cbp-spmenu-vertical a {
@@ -93,7 +93,7 @@
 }
 
 .cbp-spmenu-right.cbp-spmenu-close {
-	right: -400px;
+	right: -300px;
 }
 
 /* Horizontal menu that slides from the top or bottom */

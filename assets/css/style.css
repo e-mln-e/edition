@@ -1496,7 +1496,8 @@ hr {
     max-width:600px;
     margin: auto;
     padding-top:116px;
-    font-size:1.4em;
+    font-size:1.6em;
+    color:#3c3c3c;
 }
 .attributs{
     position:absolute;
@@ -1552,4 +1553,7 @@ ul.sommaire, ul.attributs{
 }
 .attributs h6:first-child{
     margin-top:10px;
+}
+.attributs{
+    opacity: 0.4;
 }

@@ -1,8 +1,9 @@
-<?php tpl_load('header'); ?>
+<?php $core->tpl_load('header'); ?>
         <main>
-            <h6 id="showLeft" class="w300p">Sommaire</h6>
-            <aside class="w300p sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
-                <ul>
+            <aside class="w300p">
+            <p id="showLeft"></p>
+                <ul class="sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
+                    <h6>Sommaire</h6>
                     <li>item 1</li>
                     <li>item 1</li>
                     <li>item 1</li>
@@ -15,13 +16,14 @@
                 <p>Yoo ch'ai lu dans les DNA que le Racing a encore perdu contre Oberschaeffolsheim. Verdammi et moi ch'avais donc parié deux knacks et une flammekueche. Ah so ? T'inquiète, ch'ai ramené du schpeck, du chambon, un kuglopf et du schnaps dans mon rucksack. Allez, s'guelt ! Wotch a kofee avec ton bibalaekaess et ta wurscht ? Yeuh non che suis au réchime, je ne mange plus que des Grumbeere light et che fais de la chym avec Chulien. Tiens, un rottznoz sur le comptoir.</p>
                 <p>Tu restes pour le lotto-owe ce soir, y'a baeckeoffe ? Yeuh non, merci vielmols mais che dois partir à la Coopé de Truchtersheim acheter des mänele et des rossbolla pour les gamins. Hopla tchao bissame ! Consectetur adipiscing elit</p>
             </section>
-            <h6 id="showRight" class="w400p"><img src="<?php $core->tpl_go_to_assets('img'); ?>/sommaire-actif.jpg"/> Attributs</h6>
-            <aside class="w400p attributs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menu-attributs">
-                <ul>
-                    <li>item 1</li>
-                    <li>item 1</li>
-                    <li>item 1</li>
+            <aside class="w400p">
+            <p id="showRight"></p>
+                <ul class="attributs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menu-attributs">
+                    <h6>Attributs</h6>
+                    <li>Medias</li>
+                    <li>Mots-clés</li>
+                    <li>Collaborateurs</li>
                 </ul>
             </aside>
         </main>
-<?php tpl_load('footer'); ?>
+<?php $core->tpl_load('footer'); ?>

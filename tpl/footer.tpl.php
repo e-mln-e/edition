@@ -19,7 +19,7 @@
 			};
 			showRight.onclick = function() {
 				classie.toggle( this, 'active' );
-				classie.toggle( menuAttributs, 'cbp-spmenu-open' );
+				classie.toggle( menuAttributs, 'cbp-spmenu-close' );
 				disableOther( 'showRight' );
 			};
 			showLeftPush.onclick = function() {
@@ -36,17 +36,8 @@
 				if( button !== 'showRight' ) {
 					classie.toggle( showRight, 'disabled' );
 				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
 				if( button !== 'showLeftPush' ) {
 					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
 				}
 			}
 		</script>
