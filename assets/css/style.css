@@ -1556,7 +1556,11 @@ ul.sommaire, ul.attributs{
     list-style-type: none;
 }
 ul.sommaire li{
-    padding-left: 30px;
+    padding: 5px 0 5px 30px;
+    cursor:pointer;
+}
+ul.sommaire li:hover{
+    background-color: #e5e5e5;
 }
 .sommaire h6:first-child{
     margin:10px 0 30px 30px;
