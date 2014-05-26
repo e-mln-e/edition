@@ -12,9 +12,9 @@
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <link rel="stylesheet" href="<?php tpl_go_to_assets('css'); ?>/style.css" media="all">
-        <link rel="stylesheet" href="<?php tpl_go_to_assets('css'); ?>/default.css" media="all">
-        <link rel="stylesheet" href="<?php tpl_go_to_assets('css'); ?>/component.css" media="all">
+        <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('css'); ?>/style.css" media="all">
+        <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('css'); ?>/default.css" media="all">
+        <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('css'); ?>/component.css" media="all">
     </head>
     
     <body class="cbp-spmenu-push">
@@ -26,7 +26,7 @@
 			<a href="#">Mon profil</a>
 		</nav>
         <header>
-            <div id="showLeftPush" class="w300p"><img src="<?php tpl_go_to_assets('img'); ?>/logo.jpg"/> EcrirePublier</div>
+            <div id="showLeftPush" class="w300p"><img src="<?php $core->tpl_go_to_assets('img'); ?>/logo.jpg"/> EcrirePublier</div>
         </header>
         <main>
             <h6 id="showLeft" class="w300p">Sommaire</h6>
@@ -54,8 +54,8 @@
             </aside>
         </main>
         
-        <script src="<?php tpl_go_to_assets('js'); ?>/jquery.js"></script>
-        <script src="<?php tpl_go_to_assets('js'); ?>/classie.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
                 menuSommaire = document.getElementById( 'menu-sommaire' ),
