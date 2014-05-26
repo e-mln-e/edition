@@ -13,11 +13,12 @@
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <link rel="stylesheet" href="../assets/css/style.css" media="all">
+        <link rel="stylesheet" href="../assets/css/default.css" media="all">
+        <link rel="stylesheet" href="../assets/css/component.css" media="all">
     </head>
     
-    <body>
+    <body class="cbp-spmenu-push">
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-general">
-			<h3>Menu</h3>
 			<a href="#">Accueil</a>
 			<a href="#">Nouvelle édition</a>
 			<a href="#">Collections</a>
@@ -25,12 +26,32 @@
 			<a href="#">Mon profil</a>
 		</nav>
         <header>
-            <div id="showLeftPush"><img src="../assets/img/logo.jpg"/> EcrirePublier</div>
+            <div id="showLeftPush" class="w200p"><img src="../assets/img/logo.jpg"/> EcrirePublier</div>
         </header>
         <main>
-            <aside class=""></aside>
-            <section class=""></section>
-            <aside class=""></aside>
+            <h6 id="showLeft" class="">Sommaire</h6>
+            <aside class="w300p sommaire">
+                <ul>
+                    <li>item 1</li>
+                    <li>item 1</li>
+                    <li>item 1</li>
+                </ul>
+            </aside>
+            <section class="text-edit">
+                <p>Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une Wurschtsalad avec un picon bitte, s'il te plaît.
+  Voss ? Une Carola et du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !</p> 
+                <p>Hopla vous savez que la mamsell Huguette, la miss Miss Dahlias du messti de Bischheim était au Christkindelsmärik en compagnie de Richard Schirmeck (celui qui a un blottkopf), le mari de Chulia Roberstau, qui lui trempait sa Nüdle dans sa Schneck ! Yo dû, Pfourtz ! Ch'espère qu'ils avaient du Kabinetpapier, Gal !</p>
+                <p>Yoo ch'ai lu dans les DNA que le Racing a encore perdu contre Oberschaeffolsheim. Verdammi et moi ch'avais donc parié deux knacks et une flammekueche. Ah so ? T'inquiète, ch'ai ramené du schpeck, du chambon, un kuglopf et du schnaps dans mon rucksack. Allez, s'guelt ! Wotch a kofee avec ton bibalaekaess et ta wurscht ? Yeuh non che suis au réchime, je ne mange plus que des Grumbeere light et che fais de la chym avec Chulien. Tiens, un rottznoz sur le comptoir.</p>
+                <p>Tu restes pour le lotto-owe ce soir, y'a baeckeoffe ? Yeuh non, merci vielmols mais che dois partir à la Coopé de Truchtersheim acheter des mänele et des rossbolla pour les gamins. Hopla tchao bissame ! Consectetur adipiscing elit</p>
+            </section>
+            <h6 id="showRight" class="">Attributs</h6>
+            <aside class="w400p attributs">
+                <ul>
+                    <li>item 1</li>
+                    <li>item 1</li>
+                    <li>item 1</li>
+                </ul>
+            </aside>
         </main>
         
         <script src="../assets/js/jquery.js"></script>
@@ -54,27 +75,11 @@
 				classie.toggle( menuRight, 'cbp-spmenu-open' );
 				disableOther( 'showRight' );
 			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
 			showLeftPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				classie.toggle( menuGeneral, 'cbp-spmenu-open' );
 				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
 			};
 
 			function disableOther( button ) {
