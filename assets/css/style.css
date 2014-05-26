@@ -1497,7 +1497,7 @@ hr {
     margin: auto;
     padding-top:116px;
     font-size:1.6em;
-    color:#3c3c3c;
+    color:#41414b;
 }
 .attributs{
     position:absolute;
@@ -1528,28 +1528,38 @@ hr {
     height:58px;
     width:58px;
     z-index:997;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 #showLeft.active{
-    background-image: url(../img/sommaire-actif.jpg);
+    background-image: url(../img/sommaire-actif.png);
+    left:242px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 #showRight{
     position:absolute;
     top:0;
     right:0;
-    background-image: url(../img/attributs-actif.jpg);
+    background-image: url(../img/attributs-actif.png);
     height:58px;
     width:58px;
     z-index:997;
 }
 #showRight.active{
-    background-image: url(../img/attributs-inactif.jpg);
+    background-image: url(../img/attributs-inactif.png);
 }
 ul.sommaire, ul.attributs{
     margin-top:0;
     list-style-type: none;
 }
+ul.sommaire li{
+    padding-left: 30px;
+}
 .sommaire h6:first-child{
-    margin:10px 0 0 60px;
+    margin:10px 0 30px 30px;
 }
 .attributs h6:first-child{
     margin-top:10px;
