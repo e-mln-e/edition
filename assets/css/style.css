@@ -109,8 +109,7 @@ h5,
 }
 h6,
 .h6-like {
-	font-size: 1.1rem;
-    margin-top:15px;
+	font-size: 1rem;
 }
 /* alternate font-sizing */
 
@@ -1496,6 +1495,8 @@ hr {
 .text-edit{
     max-width:600px;
     margin: auto;
+    padding-top:116px;
+    font-size:1.4em;
 }
 .attributs{
     position:absolute;
@@ -1510,7 +1511,7 @@ hr {
     padding:20px;
 }
 #showLeftPush{
-    background: #7f7f8d;
+    background: #4a4a5a;
     color:white;
     position:fixed;
 }
@@ -1520,11 +1521,35 @@ hr {
 }
 #showLeft{
     position:absolute;
-    top:75px;
-    left:20px;
+    top:58px;
+    left:0px;
+    background-image: url(../img/sommaire-inactif.jpg);
+    height:58px;
+    width:58px;
+    z-index:997;
+}
+#showLeft.active{
+    background-image: url(../img/sommaire-actif.jpg);
 }
 #showRight{
     position:absolute;
     top:0;
     right:0;
+    background-image: url(../img/attributs-actif.jpg);
+    height:58px;
+    width:58px;
+    z-index:997;
+}
+#showRight.active{
+    background-image: url(../img/attributs-inactif.jpg);
+}
+ul.sommaire, ul.attributs{
+    margin-top:0;
+    list-style-type: none;
+}
+.sommaire h6:first-child{
+    margin:10px 0 0 60px;
+}
+.attributs h6:first-child{
+    margin-top:10px;
 }

@@ -5,6 +5,7 @@
 }
 .cbp-spmenu.sommaire, .cbp-spmenu.attributs{
     position:absolute;
+    background:#e4e4e4;
 }
 
 .cbp-spmenu h3 {
@@ -38,14 +39,14 @@
 }
 
 .cbp-spmenu-vertical.sommaire{
-    top:116px;
+    top:58px;
     width:300px;
-    z-index:999;
+    z-index:995;
+    height:inherit;
 }
 .cbp-spmenu-vertical.attributs{
-    top:58px;
     width:400px;
-    z-index:999;
+    z-index:995;
 }
 .cbp-spmenu-vertical a {
 	height: 50px;
@@ -84,15 +85,15 @@
 
 
 .cbp-spmenu-right {
-	right: -400px;
+	right: 0px;
 }
 
 .cbp-spmenu-left.cbp-spmenu-open {
 	left: 0px;
 }
 
-.cbp-spmenu-right.cbp-spmenu-open {
-	right: 0px;
+.cbp-spmenu-right.cbp-spmenu-close {
+	right: -400px;
 }
 
 /* Horizontal menu that slides from the top or bottom */

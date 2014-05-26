@@ -29,9 +29,10 @@
             <div id="showLeftPush" class="w300p"><img src="../assets/img/logo.jpg"/> EcrirePublier</div>
         </header>
         <main>
-            <h6 id="showLeft" class="w300p">Sommaire</h6>
-            <aside class="w300p sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
-                <ul>
+            <aside class="w300p">
+            <p id="showLeft"></p>
+                <ul class="sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
+                    <h6>Sommaire</h6>
                     <li>item 1</li>
                     <li>item 1</li>
                     <li>item 1</li>
@@ -44,17 +45,19 @@
                 <p>Yoo ch'ai lu dans les DNA que le Racing a encore perdu contre Oberschaeffolsheim. Verdammi et moi ch'avais donc parié deux knacks et une flammekueche. Ah so ? T'inquiète, ch'ai ramené du schpeck, du chambon, un kuglopf et du schnaps dans mon rucksack. Allez, s'guelt ! Wotch a kofee avec ton bibalaekaess et ta wurscht ? Yeuh non che suis au réchime, je ne mange plus que des Grumbeere light et che fais de la chym avec Chulien. Tiens, un rottznoz sur le comptoir.</p>
                 <p>Tu restes pour le lotto-owe ce soir, y'a baeckeoffe ? Yeuh non, merci vielmols mais che dois partir à la Coopé de Truchtersheim acheter des mänele et des rossbolla pour les gamins. Hopla tchao bissame ! Consectetur adipiscing elit</p>
             </section>
-            <h6 id="showRight" class="w400p">Attributs</h6>
-            <aside class="w400p attributs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menu-attributs">
-                <ul>
-                    <li>item 1</li>
-                    <li>item 1</li>
-                    <li>item 1</li>
+            <aside class="w400p">
+            <p id="showRight"></p>
+                <ul class="attributs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menu-attributs">
+                    <h6>Attributs</h6>
+                    <li>Medias</li>
+                    <li>Mots-clés</li>
+                    <li>Collaborateurs</li>
                 </ul>
             </aside>
         </main>
         
         <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/waypoints.js"></script>
         <script src="../assets/js/classie.js"></script>
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
@@ -72,7 +75,7 @@
 			};
 			showRight.onclick = function() {
 				classie.toggle( this, 'active' );
-				classie.toggle( menuAttributs, 'cbp-spmenu-open' );
+				classie.toggle( menuAttributs, 'cbp-spmenu-close' );
 				disableOther( 'showRight' );
 			};
 			showLeftPush.onclick = function() {
@@ -89,17 +92,8 @@
 				if( button !== 'showRight' ) {
 					classie.toggle( showRight, 'disabled' );
 				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
 				if( button !== 'showLeftPush' ) {
 					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
 				}
 			}
 		</script>
