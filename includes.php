@@ -32,5 +32,6 @@ function __autoload($class_name) {
 // On nomme ces variables comme globales
 global $core;
 global $user;
+global $book;
 
 ?>
