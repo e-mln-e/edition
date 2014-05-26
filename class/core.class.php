@@ -25,6 +25,15 @@ class core {
 	}
 	
 	
+	public	function tpl_redirection($page, $attribut = null, $valeur = null) {
+		if ($attribut && $valeur) {
+			header( 'Location: index.php?page=' . $page . '&attribut=' . $attribut . '&valeur=' . $valeur);
+		} else {
+			header( 'Location: index.php?page=' . $page );
+		}
+	}
+	
+	
 }
 
 ?>

@@ -25,10 +25,12 @@ function __autoload($class_name) {
 }
 
 // On appelle l'ensemble des classes générales au site
-$core =	new core($mysqli);
+	$core =	new core($mysqli);
+	$user = new user($mysqli);
 
 
 // On nomme ces variables comme globales
 global $core;
+global $user;
 
 ?>
