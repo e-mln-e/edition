@@ -1,0 +1,101 @@
+<!doctype html>
+<!--[if lte IE 7]> <html class="no-js ie67 ie678" lang="fr"> <![endif]-->
+<!--[if IE 8]> <html class="no-js ie8 ie678" lang="fr"> <![endif]-->
+<!--[if IE 9]> <html class="no-js ie9" lang="fr"> <![endif]-->
+<!--[if gt IE 9]> <!--><html class="no-js" lang="fr"> <!--<![endif]-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+        <title>Edition numerique</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="../assets/css/style.css" media="all">
+    </head>
+    
+    <body>
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-general">
+			<h3>Menu</h3>
+			<a href="#">Accueil</a>
+			<a href="#">Nouvelle édition</a>
+			<a href="#">Collections</a>
+			<a href="#">Collaborateurs</a>
+			<a href="#">Mon profil</a>
+		</nav>
+        <header>
+            <div id="showLeftPush"><img src="../assets/img/logo.jpg"/> EcrirePublier</div>
+        </header>
+        <main>
+            <aside class=""></aside>
+            <section class=""></section>
+            <aside class=""></aside>
+        </main>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../assets/js/classie.js"></script>
+        <script>
+			var menuGeneral = document.getElementById( 'menu-general' ),
+                menuSommaire = document.getElementById( 'menu-sommaire' ),
+				menuAttributs = document.getElementById( 'menu-attributs' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				showRight = document.getElementById( 'showRight' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				body = document.body;
+
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			showRight.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRight' );
+			};
+			showTop.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuTop, 'cbp-spmenu-open' );
+				disableOther( 'showTop' );
+			};
+			showBottom.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuBottom, 'cbp-spmenu-open' );
+				disableOther( 'showBottom' );
+			};
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+			showRightPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toleft' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRightPush' );
+			};
+
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+				if( button !== 'showRight' ) {
+					classie.toggle( showRight, 'disabled' );
+				}
+				if( button !== 'showTop' ) {
+					classie.toggle( showTop, 'disabled' );
+				}
+				if( button !== 'showBottom' ) {
+					classie.toggle( showBottom, 'disabled' );
+				}
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+				if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+		</script>
+    </body>
+</html>
