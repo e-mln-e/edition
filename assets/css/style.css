@@ -109,7 +109,8 @@ h5,
 }
 h6,
 .h6-like {
-	font-size: 1.6rem;
+	font-size: 1.1rem;
+    margin-top:15px;
 }
 /* alternate font-sizing */
 
@@ -1507,4 +1508,23 @@ hr {
     left:0px;
     top:100px;
     padding:20px;
+}
+#showLeftPush{
+    background: #7f7f8d;
+    color:white;
+    position:fixed;
+}
+
+#showLeft, #showRight, #showLeftPush {
+    cursor:pointer;
+}
+#showLeft{
+    position:absolute;
+    top:75px;
+    left:20px;
+}
+#showRight{
+    position:absolute;
+    top:0;
+    right:0;
 }

@@ -3,6 +3,9 @@
 	background: #4a4a5a;
 	position: fixed;
 }
+.cbp-spmenu.sommaire, .cbp-spmenu.attributs{
+    position:absolute;
+}
 
 .cbp-spmenu h3 {
 	color: #afdefa;
@@ -21,12 +24,7 @@
 }
 
 .cbp-spmenu a:hover {
-	background: #258ecd;
-}
-
-.cbp-spmenu a:active {
-	background: #afdefa;
-	color: #47a3da;
+	font-weight:bold;
 }
 
 /* Orientation-dependent styles for the content of the menu */
@@ -39,6 +37,16 @@
     padding-top:8px;
 }
 
+.cbp-spmenu-vertical.sommaire{
+    top:116px;
+    width:300px;
+    z-index:999;
+}
+.cbp-spmenu-vertical.attributs{
+    top:58px;
+    width:400px;
+    z-index:999;
+}
 .cbp-spmenu-vertical a {
 	height: 50px;
     padding: 12px 30px 8px 30px;
@@ -70,9 +78,13 @@
 .cbp-spmenu-left {
 	left: -240px;
 }
+.cbp-spmenu-left.sommaire {
+	left: -300px;
+}
+
 
 .cbp-spmenu-right {
-	right: -240px;
+	right: -400px;
 }
 
 .cbp-spmenu-left.cbp-spmenu-open {
