@@ -35,8 +35,8 @@ class core {
 	
 	
 	public	function tpl_go_to_assets($cible_finale = null) {
-		if (!$cible_finale) { return 'assets/'; }
-		else { return 'assets/' . $cible_finale . '/';  } /* 'css', 'js', 'fonts', 'img' */
+		if (!$cible_finale) { echo 'assets/'; }
+		else { echo 'assets/' . $cible_finale;  } /* 'css', 'js', 'fonts', 'img' */
 	}
 	
 	
