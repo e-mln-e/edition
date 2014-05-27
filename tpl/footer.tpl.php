@@ -19,33 +19,32 @@
 			showLeft.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( menuSommaire, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
 			};
 			showRight.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( menuAttributs, 'cbp-spmenu-close' );
-				disableOther( 'showRight' );
 			};
 			showLeftPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuGeneral, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
+                classie.toggle( showLeft, 'cbp-spmenu-push-toright' );
+                classie.toggle( menuSommaire, 'cbp-spmenu-push-toright' );
 			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			}
-		</script>
-        <script>
+            
+            
+            $('.sommaire').waypoint(function() {
+                classie.toggle( showLeft, 'active' );
+				classie.toggle( menuSommaire, 'cbp-spmenu-open' );
+            }, {
+                  offset: function() {
+                    var hauteur = -$(".sommaire").height();
+                    return hauteur + 116;
+                  }
+                });
+            
+            
+// Dropage des fichiers 
             Dropzone.options.dropMedia = {
               paramName: "file", // The name that will be used to transfer the file
               maxFilesize: 2, // MB
@@ -59,9 +58,9 @@
                 else { done(); }
               }
             };
-        </script>
-        <!-- Editeur markdown -->
-        <script type="text/javascript">
+
+
+//editeur markdown
 
           // config
           var options = {
@@ -72,13 +71,6 @@
           // create editor
           var pen = new Pen(options);
 
-
-        </script>
-        <script>
-            $('.sommaire').waypoint(function() {
-                $("#showLeft").toggleClass('active');
-            }, {  offset: -30 }
-            );
         </script>
     </body> 
 </html>

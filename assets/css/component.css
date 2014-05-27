@@ -3,7 +3,11 @@
 	background: #4a4a5a;
 	position: fixed;
 }
-.cbp-spmenu.sommaire, .cbp-spmenu.attributs{
+.cbp-spmenu.sommaire{
+    position:fixed;
+    background:#f0f0f0;
+}
+.cbp-spmenu.attributs{
     position:absolute;
     background:#f0f0f0;
 }
@@ -43,6 +47,7 @@
     width:300px;
     z-index:995;
     height:inherit;
+    max-height:80%;
 }
 .cbp-spmenu-vertical.attributs{
     width:300px;

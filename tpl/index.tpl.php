@@ -1,14 +1,38 @@
 <?php $core->tpl_load('header'); ?>
         <main>
-            <aside class="w300p">
-            <p id="showLeft"></p>
-                <ul class="sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
-                    <h6>Sommaire</h6>
-                    <li>item 1</li>
-                    <li>item 1</li>
-                    <li>item 1</li>
-                </ul>
-            </aside>
+            <nav class="w300p">
+                <p id="showLeft"></p>
+                <div class="sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
+                <h6>Sommaire</h6>
+                    <ul>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                    </ul>
+                    <button>Créer une section</button>
+                </div>
+            </nav>
             <section class="text-edit pen hinted" data-toggle="pen" placeholder="im a placeholder">
                 <?php $book->content(); ?>
             </section>

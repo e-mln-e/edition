@@ -1508,8 +1508,10 @@ hr {
 .sommaire{
     position:absolute;
     left:0px;
-    top:100px;
-    padding:20px;
+    padding:20px 0 70px 20px;
+}
+.sommaire ul li:last-child{
+    margin-bottom:15px;
 }
 #showLeftPush{
     background: #4a4a5a;
@@ -1517,7 +1519,10 @@ hr {
     position:fixed;
     z-index:998;
 }
-
+h1#showLeftPush{
+    font-size:18px;
+    margin-bottom:0;
+}
 #showLeft, #showRight, #showLeftPush {
     cursor:pointer;
 }
@@ -1532,6 +1537,7 @@ hr {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    margin-top:0px;
 }
 #showLeft.active{
     background-image: url(../img/sommaire-actif.png);
@@ -1539,6 +1545,12 @@ hr {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
+}
+#showLeft.cbp-spmenu-push-toright, .sommaire.cbp-spmenu-open.cbp-spmenu-push-toright{
+    left:240px;
+}
+#showLeft.active.cbp-spmenu-push-toright{
+    left:482px;
 }
 #showRight{
     position:absolute;
@@ -1552,19 +1564,29 @@ hr {
 #showRight.active{
     background-image: url(../img/attributs-inactif.png);
 }
-ul.sommaire, ul.attributs{
+.sommaire, ul.attributs{
     margin-top:0;
     list-style-type: none;
 }
-ul.sommaire li{
+.sommaire ul li{
     padding: 5px 0 5px 30px;
     cursor:pointer;
+    margin-top:0;
+    list-style-type: none;
 }
-ul.sommaire li:hover{
+.sommaire li:hover{
     background-color: #e5e5e5;
 }
 .sommaire h6:first-child{
-    margin:10px 0 30px 30px;
+    margin:10px 0 30px 0;
+}
+main nav{
+    height:100%;
+}
+.sommaire ul{
+    overflow-y:scroll;
+    height:90%;
+    padding-left:0;
 }
 .attributs h6:first-child{
     margin:15px 0 15px 20px;
@@ -1589,6 +1611,16 @@ ul.attributs li{
     padding:5px 8px;
     background:white;
     margin-top:-3px;
+    color:grey;
+}
+button{
+    border:0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding:5px 8px;
+    background:white;
+    margin:20px 0px;
     color:grey;
 }
 ul.attributs li.media-uploaded{

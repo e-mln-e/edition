@@ -26,5 +26,5 @@
 			<a href="#">Mon profil</a>
 		</nav>
         <header>
-            <div id="showLeftPush" class="w300p"><img src="<?php $core->tpl_go_to_assets('img'); ?>/logo.jpg"/> &nbsp;&nbsp;Hypublish</div>
+            <h1 id="showLeftPush" class="w300p"><img src="<?php $core->tpl_go_to_assets('img'); ?>/logo.jpg"/> Hypublish</h1>
         </header>
