@@ -7,7 +7,7 @@ $book->get_summary();
 $chapters = $book->get_chapters();
 $book->get_chapter($chapters[0]);
 
-$book->authors(true);
+//$book->authors(true);
 
 include 'tpl/index.tpl.php';
 
