@@ -1515,6 +1515,7 @@ hr {
     background: #4a4a5a;
     color:white;
     position:fixed;
+    z-index:998;
 }
 
 #showLeft, #showRight, #showLeftPush {
@@ -1566,12 +1567,37 @@ ul.sommaire li:hover{
     margin:10px 0 30px 30px;
 }
 .attributs h6:first-child{
-    margin-top:10px;
+    margin:15px 0 15px 20px;
 }
-.attributs{
-    opacity: 0.4;
+ul.attributs{
+    padding:0;    
+}
+ul.attributs li{
+    padding:10px 15px 10px 20px;
+}
+#medias{
+    background:#de5051;
+    color:white;
 }
 #medias button{
     position:absolute;
+    border:0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     right:16px;
+    padding:5px 8px;
+    background:white;
+    margin-top:-3px;
+    color:grey;
+}
+ul.attributs li.media-uploaded{
+    padding:0 0 7px 0;
+}
+ul.attributs li.media-uploaded img{
+    width:100%;
+}
+.metadata-medias{
+    padding:0 20px;
+    background:white;
 }
