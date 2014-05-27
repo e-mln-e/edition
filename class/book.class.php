@@ -269,6 +269,61 @@ class book extends core {
 			return false;
 		}
 	}
+	
+	
+	public	function author_add($author, $chapter = null) {
+		if (!$chapter)  $chapter = $this->get_chapter_info('id');
+		
+		// On récupère les auteurs
+		$authors = $this->get_chapter_info('editors');
+		// On vérifie que l'auteur ne soit pas déjà déclaré
+		if (!in_array($author, $authors)) {
+			// On ajoute le tag à la liste
+			$authors[] = $author;
+			
+			// On développe la liste en mise en forme destinée à MySQL
+			$authors = implode(',', $authors);
+			
+			// On ajout à MySQL
+			$query = 'UPDATE chapters SET chapter_editors = "' . $authors . '" WHERE chapter_id = ' . $chapter;
+			if ($this->db->query($query)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
+	
+	public	function author_delete($author, $chapter = null) {
+		if (!$chapter) $chapter = $this->get_chapter_info('id');
+		
+		// On récupère les tags
+		$authors = $this->get_chapter_info('editors');
+		
+		// On vérifie que le tag soit présent dans la liste
+		if (in_array($author, $authors)) {
+			// On recherche la position dans la liste du tag
+			$key = array_search($author, $authors);
+			unset($authors[$key]);
+			
+			// On développe la liste en mise en forme destinée à MySQL
+			$authors = implode(',', $authors);
+			
+			// On ajout à MySQL
+			$query = 'UPDATE chapters SET chapter_editors = "' . $authors . '" WHERE chapter_id = ' . $chapter;
+			if ($this->db->query($query)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
 }
 
 ?>
