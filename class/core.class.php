@@ -17,7 +17,7 @@ class core {
 	// Méthodes liées au templating
 	
 	public	function tpl_load($tpl, $sub = NULL) {
-		global $core;
+		global $core, $user, $book;
 	
 		if ($sub) {
 			include 'tpl/' . $tpl . '-' . $sub . '.tpl.php';

@@ -27,6 +27,7 @@ function __autoload($class_name) {
 // On appelle l'ensemble des classes générales au site
 	$core =	new core($mysqli);
 	$user = new user($mysqli);
+	$book = new book($mysqli);
 
 
 // On nomme ces variables comme globales

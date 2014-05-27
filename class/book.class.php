@@ -5,7 +5,7 @@ class book {
 	private	$db;
 	private $open_book;
 	private $summary;
-	private $chapter;
+	private	$chapter;
 	
 	
 	public	function __construct($db) {
@@ -21,15 +21,15 @@ class book {
 		if ($sql->num_rows == 1) {
 			$row = $sql->fetch_assoc();
 			
-			$open_book = array(	'id'			=>	$row['book_id'],
-								'summary'		=>	$row['summary_id'],
-								'template'		=>	$row['template_id'],
-								'collection'	=>	$row['collection_id'],
-								'title'			=>	$row['book_title'],
-								'hash'			=>	$row['book_hash'],
-								'editors'		=>	$row['book_editors'],
-								'tags'			=>	$row['book_tags'],
-								'cover'			=>	$row['book_cover'] );
+			$this->open_book = array(	'id'			=>	$row['book_id'],
+										'summary'		=>	$row['summary_id'],
+										'template'		=>	$row['template_id'],
+										'collection'	=>	$row['collection_id'],
+										'title'			=>	$row['book_title'],
+										'hash'			=>	$row['book_hash'],
+										'editors'		=>	$row['book_editors'],
+										'tags'			=>	$row['book_tags'],
+										'cover'			=>	$row['book_cover'] );
 								
 			return true;
 		} else {
@@ -76,7 +76,9 @@ class book {
 	public	function the_cover() { echo $this->get_the_cover(); }
 	
 	
-	public	function get_summary($book_id) {
+	public	function get_summary($book_id = null) {
+		if (!$book_id) { $book_id = $this->get_the_ID(); }
+	
 		$query = 'SELECT * FROM summaries WHERE summary_id = ' . $book_id;
 		$sql = $this->db->query($query);
 		
@@ -121,7 +123,24 @@ class book {
 	}
 	
 	public	function get_chapter_info($info) { return $this->chapter[$info]; }
-	public	function chapter_info($info) { echo $this->get_chapter_info($info); }
+	
+	public	function get_the_content($id = null) {
+		if(!$id) { $id = $this->get_chapter_info('content'); }
+		
+		$query = 'SELECT * FROM contents WHERE content_id = ' . $id;
+		$sql = $this->db->query($query);
+		
+		if ($sql->num_rows == 1) {
+			$row = $sql->fetch_assoc();
+			$content = $row['content_text'];
+			$content = utf8_encode($content);
+			
+			return nl2br($content);
+		} else {
+			return false;
+		}
+	}
+	public	function the_content($id = null) { echo $this->get_the_content($id); }
 }
 
 ?>
