@@ -2,8 +2,15 @@
         
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/rangycore.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/hallo.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/showdown.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/to-markdown.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/editor.js"></script>
+        
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
                 menuSommaire = document.getElementById( 'menu-sommaire' ),
@@ -56,6 +63,11 @@
                 else { done(); }
               }
             };
+        </script>
+        <script>
+            $('#showLeft').waypoint('sticky', {
+              offset: 120 // Apply "stuck" when element 30px from top
+            });
         </script>
     </body>
 </html>
