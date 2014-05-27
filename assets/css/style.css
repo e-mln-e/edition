@@ -1533,6 +1533,11 @@ hr {
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
+#showLeft.stuck{
+    position:fixed;
+    top:58px;
+    left:0px;
+}
 #showLeft.active{
     background-image: url(../img/sommaire-actif.png);
     left:242px;
