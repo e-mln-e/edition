@@ -24,7 +24,7 @@ $book->get_summary();
 $chapters = $book->get_chapters();
 $book->get_chapter($chapters[0]);
 
-include 'tpl/index.tpl.php';
+$core->tpl_load('section', 'text');
 
 $book->close_book();
 

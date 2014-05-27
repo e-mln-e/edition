@@ -91,7 +91,7 @@ class user extends core {
 	
 	// Méthodes d'affichage des erreurs de login
 	public	function is_error($type) {
-		if ($_POST['error'] == $type) {
+		if ($_GET['error'] == $type) {
 			return true;
 		} else {
 			return false;

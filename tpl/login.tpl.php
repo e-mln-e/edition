@@ -2,7 +2,7 @@
 <h1>Bienvenue sur Hypublish</h1>
 <h4>Outil d'écriture et de publication numérique</h4>
 <p>Cet outil est en version bêta</p>
-<?php if ($user->is_error('password')) : ?>
+<?php if ($user->is_error('pass')) : ?>
 	<p>Erreur de mot de passe</p>
 <?php elseif ($user->is_error('login')) : ?>
 	<p>Erreur de login</p>
