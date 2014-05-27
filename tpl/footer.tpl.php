@@ -66,7 +66,7 @@
         </script>
         <script>
             $('#showLeft').waypoint('sticky', {
-              offset: 120 // Apply "stuck" when element 30px from top
+              offset: 30
             });
         </script>
     </body>
