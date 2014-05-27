@@ -216,7 +216,19 @@ class book extends core {
 	// Gestion des tags
 	
 	public	function tag_add($tag, $chapter = null) {
-		if (!$chapter) { $chapter = get_chapter_info('id'); }
+		if (!$chapter) { $chapter = $this->get_chapter_info('id'); }
+		
+		// On récupère les tags
+		$tags = $this->get_chapter_info('tags');
+		
+		// On vérifie que le tag n'est pas déjà présent dans la liste
+		if (!array_key_exists($tag, $tags)) {
+			$tags[] = $tag;
+			
+			return $tags;
+		} else {
+			return false;
+		}
 	}
 }
 
