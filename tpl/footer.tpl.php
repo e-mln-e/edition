@@ -66,7 +66,18 @@
         </script>
         <script>
             $('#showLeft').waypoint('sticky', {
-              offset: 30
+              offset: 120
+            });
+            $('.sommaire').waypoint(function() {
+                if( $("ul.sommaire").hasClass("cbp-spmenu-open") ){
+                    $("#menu-sommaire").toggleClass("cbp-spmenu-open");
+                    disableOther( 'showLeft' );
+                } else {
+                }
+            }, {
+              offset: function() {
+                return -$(this).height();
+              }
             });
         </script>
     </body>
