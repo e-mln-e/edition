@@ -10,7 +10,7 @@
                 </ul>
             </aside>
             <section class="text-edit editable" id="source">
-                <?php $book->the_content(); ?>
+                <?php $book->content(); ?>
             </section>
             <aside class="w400p">
             <p id="showRight"></p>

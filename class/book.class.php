@@ -124,7 +124,7 @@ class book extends core {
 	
 	public	function get_chapter_info($info) { return $this->chapter[$info]; }
 	
-	public	function get_the_content($id = null) {
+	public	function get_content($id = null) {
 		if(!$id) { $id = $this->get_chapter_info('content'); }
 		
 		$query = 'SELECT * FROM contents WHERE content_id = ' . $id;
@@ -140,7 +140,7 @@ class book extends core {
 			return false;
 		}
 	}
-	public	function the_content($id = null) { echo $this->get_the_content($id); }
+	public	function content($id = null) { echo $this->get_the_content($id); }
 	
 	public	function get_authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
 		$authors = $this->get_chapter_info('editors');
