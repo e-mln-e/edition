@@ -13,7 +13,7 @@ setlocale(LC_ALL, 'fr_FR', 'fr');
 
 // Appel de la classe MySQL
 
-$mysqli = new mysqli('localhost', 'c2damien', 'gibizlundopsa', 'c2editionNum');
+include 'mysql.php';
 
 // On vérifie qu'il n'existe pas une erreur de connexion, auquel cas on l'affiche
 if ($mysqli->connect_errno) { echo 'Erreur de connexion à la base de données'; }
