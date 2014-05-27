@@ -5,6 +5,7 @@ class book {
 	private	$db;
 	private $open_book;
 	private $summary;
+	private $chapter;
 	
 	
 	public	function __construct($db) {
@@ -99,9 +100,28 @@ class book {
 	public	function get_chapters() { return $this->summary['chapters']; }
 	
 	
-	public	function get_chapter() {
+	public	function get_chapter($id) {
+		$query = 'SELECT * FROM chapters WHERE chapter_id = ' . $id;
+		$sql = $this->db->query($query);
 		
+		if ($sql->num_rows == 1) {
+			$row = $sql->fetch_assoc();
+			
+			$this->chapter = array(	'id'			=>	$row['chapter_id'],
+									'content'		=>	$row['content_id'],
+									'editors'		=>	explode(';', $row['chapter_editors']),
+									'name'			=>	$row['chapter_name'],
+									'tags'			=>	$row['chapter_tags'],
+									'section_type'	=>	$row['chapter_section_type'],
+									'published'		=>	$row['chapter_published'],
+									'release'		=>	$row['chapter_release'] );
+		} else {
+			return false;
+		}
 	}
+	
+	public	function get_chapter_info($info) { return $this->chapter[$info]; }
+	public	function chapter_info($info) { echo $this->get_chapter_info($info); }
 }
 
 ?>
