@@ -111,7 +111,7 @@ class book extends core {
 			
 			$this->chapter = array(	'id'			=>	$row['chapter_id'],
 									'content'		=>	$row['content_id'],
-									'editors'		=>	explode(';', $row['chapter_editors']),
+									'editors'		=>	explode(',', $row['chapter_editors']),
 									'name'			=>	$row['chapter_name'],
 									'tags'			=>	explode(',', $row['chapter_tags']),
 									'section_type'	=>	$row['chapter_section_type'],
@@ -222,11 +222,50 @@ class book extends core {
 		$tags = $this->get_chapter_info('tags');
 		
 		// On vérifie que le tag n'est pas déjà présent dans la liste
-		if (!array_key_exists($tag, $tags)) {
+		if (!in_array($tag, $tags)) {
+			// On ajoute le tag à la liste
 			$tags[] = $tag;
 			
-			return $tags;
+			// On développe la liste en mise en forme destinée à MySQL
+			$tags = implode(',', $tags);
+			
+			// On ajout à MySQL
+			$query = 'UPDATE chapters SET chapter_tags = "' . $tags . '" WHERE chapter_id = ' . $chapter;
+			if ($this->db->query($query)) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
+			return false;
+		}
+	}
+	
+	
+	public	function tag_delete($tag, $chapter = null) {
+		if (!$chapter) { $chapter = $this->get_chapter_info('id'); }
+		
+		// On récupère les tags
+		$tags = $this->get_chapter_info('tags');
+		
+		// On vérifie que le tag soit présent dans la liste
+		if (in_array($tag, $tags)) {
+			// On recherche la position dans la liste du tag
+			$key = array_search($tag, $tags);
+			unset($tags[$key]);
+			
+			// On développe la liste en mise en forme destinée à MySQL
+			$tags = implode(',', $tags);
+			
+			// On ajout à MySQL
+			$query = 'UPDATE chapters SET chapter_tags = "' . $tags . '" WHERE chapter_id = ' . $chapter;
+			if ($this->db->query($query)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		else {
 			return false;
 		}
 	}

@@ -9,7 +9,7 @@ $book->get_chapter($chapters[0]);
 
 include 'tpl/index.tpl.php';
 
-//$book->tag_add('test');
+print_r($book->get_chapter_info('tags'));
 
 $book->close_book();
 
