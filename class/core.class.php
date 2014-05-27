@@ -42,7 +42,7 @@ class core {
 	}
 	
 	
-	/*public	function tpl_get_link_to($page, $value = null, $attribut = null) {
+	public	function tpl_get_link_to($page, $value = null, $attribut = null) {
 		if ($attribut && $value) {
 			return 'index.php?page=' . $page . '&attribut=' . $attribut . '&value=' . $value;
 		} else if ($value && !$attribut) {
@@ -50,7 +50,7 @@ class core {
 		} else {
 			return 'index.php?page=' . $page;
 		}
-	}*/
+	}
 }
 
 ?>

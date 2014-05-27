@@ -1,6 +1,6 @@
 <?php
 
-class book {
+class book extends core {
 	
 	private	$db;
 	private $open_book;
@@ -150,19 +150,18 @@ class book {
 			if ($parent_id) { $return .= ' id="' . $parent_id . '"'; }
 		$return .= '>';
 		
-		return $return; exit;
-		
 		foreach ($authors as $author) {
 			$return .= '<' . $child;
 				if ($child_class) { $return .= ' class="' . $child_class . '"'; }
 				if ($child_id) { $return .= ' id="' . $child_id . '"'; }
 			$return .= '>';
 			
-				//if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('author', $author) . '">'; }
+				if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('author', $author) . '">'; }
 					
-					//$return .= $this->get_the_nicename($author);
+				//	$return .= $user->get_the_nicename($author);
+				$return .= $author;
 				
-				//if ($link) { $return .= '</a>'; }
+				if ($link) { $return .= '</a>'; }
 			
 			$return .= '</' . $child . '>';
 		}
