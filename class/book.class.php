@@ -351,6 +351,86 @@ class book extends core {
 			return false;
 		}
 	}
+	
+	
+	public function summary_display($book = null) {
+		$book_ = $book;
+		if (!$book) $book = $this->get_the_ID();
+		
+		// On recherche les informations sur le sommaire
+		if (!$book_) {
+			$summary = $this->get_summary_info('id');
+		} else {
+			$query = 'SELECT summary_id FROM books WHERE book_id = ' . $book;
+			$sql = $this->db->query($query);
+			$row = $sql->fetch_assoc();
+			$summary = $row[0];
+		}
+		
+		// On récupère les informations
+		$query = 'SELECT * FROM summaries WHERE summary_id = ' . $summary;
+		$sql = $this->db->query($query);
+		
+		if ($sql->num_rows == 1) {
+			$row = $sql->fetch_assoc();
+			$array = unserialize($row['summary_sections']);
+
+			$return = '<ul>';
+
+			// On explose le sommaire
+			foreach ($array as $key) {
+					if (is_array($key)) {
+						$return .= '<ul>';
+						
+							foreach ($key as $subkey) {
+								if (is_array($subkey)) {
+									$return .= '<ul>';
+										
+										$return .= '<li>Sous menu temporaire</li>';
+										
+									$return .= '</ul>';
+								} else {
+									$return .= '<li id="chapter-' . $subkey . '">';
+										$query = 'SELECT chapter_name FROM chapters WHERE chapter_id = ' . $subkey;
+										$sql = $this->db->query($query);
+										
+										if ($sql->num_rows) {
+											$row = $sql->fetch_array();
+											$return .= '<a href="' . $this->tpl_get_link_to('chapter', $subkey) . '">';
+												$return .= utf8_encode($row[0]);
+											$return .= '</a>';
+										} else {
+											$return .= 'Aucune information';
+										}
+									$return .= '</li>';
+								}
+							}
+						
+						$return .= '</ul>';
+					} else {
+						$return .= '<li id="chapter-' . $key . '">';
+							$query = 'SELECT chapter_name FROM chapters WHERE chapter_id = ' . $key;
+							$sql = $this->db->query($query);
+							
+							if ($sql->num_rows) {
+								$row = $sql->fetch_array();
+								$return .= '<a href="' . $this->tpl_get_link_to('chapter', $key) . '">';
+									$return .= utf8_encode($row[0]);
+								$return .= '</a>';
+							} else {
+								$return .= 'Aucune information';
+							}
+						$return .= '</li>';
+					}
+			}
+			$return .= '</ul>';
+			
+			echo $return;
+		}
+		else {
+			echo false;
+		}
+	}
 }
 
 ?>

@@ -4,32 +4,7 @@
                 <p id="showLeft"></p>
                 <div class="sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
                 <h6>Sommaire</h6>
-                    <ul>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                        <li>item 1</li>
-                    </ul>
+					<?php $book->summary_display(); ?>
                     <button>Créer une section</button>
                 </div>
             </nav>
