@@ -1,9 +1,8 @@
 
         
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery-ui.js"></script>
-        <!--<script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>-->
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/markdown.js"></script>
@@ -61,6 +60,7 @@
               }
             };
         </script>
+        <!-- Editeur markdown -->
         <script type="text/javascript">
 
           // config
@@ -74,20 +74,11 @@
 
 
         </script>
-       <!-- <script>
-
+        <script>
             $('.sommaire').waypoint(function() {
-                if( $("ul.sommaire").hasClass("cbp-spmenu-open") ){
-                    $("#menu-sommaire").toggleClass("cbp-spmenu-open");
-                    disableOther( 'showLeft' );
-                } else {
-                }
-            }, {
-              offset: function() {
-                  var hauteur = return -$(this).height();
-                  return hauteur-58;
-              }
-            });
-        </script>-->
-    </body>
+                $("#showLeft").toggleClass('active');
+            }, {  offset: -30 }
+            );
+        </script>
+    </body> 
 </html>

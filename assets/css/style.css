@@ -1522,7 +1522,7 @@ hr {
     cursor:pointer;
 }
 #showLeft{
-    position:absolute;
+    position:fixed;
     top:58px;
     left:0px;
     background-image: url(../img/sommaire-inactif.jpg);
@@ -1532,11 +1532,6 @@ hr {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
-}
-#showLeft.stuck{
-    position:fixed;
-    top:58px;
-    left:0px;
 }
 #showLeft.active{
     background-image: url(../img/sommaire-actif.png);
