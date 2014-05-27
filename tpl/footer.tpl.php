@@ -33,7 +33,7 @@
 			};
             
             
-            $('.sommaire').waypoint(function() {
+            $('.sommaire.cbp-spmenu-open').waypoint(function() {
                 classie.toggle( showLeft, 'active' );
 				classie.toggle( menuSommaire, 'cbp-spmenu-open' );
             }, {
