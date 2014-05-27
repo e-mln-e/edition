@@ -1,6 +1,6 @@
 <?php
 
-class book extends core {
+class book extends user {
 	
 	private	$db;
 	private $open_book;
@@ -158,7 +158,7 @@ class book extends core {
 			
 				if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('author', $author) . '">'; }
 					
-				//	$return .= $user->get_the_nicename($author);
+				//$return .= $this->get_the_nicename($author);
 				$return .= $author;
 				
 				if ($link) { $return .= '</a>'; }

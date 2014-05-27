@@ -3,7 +3,7 @@
 // Classe dédiée aux fonctions utilisateurs
 
 
-class user {
+class user extends core {
 	
 	// Attributs déclarés
 	private	$db;
