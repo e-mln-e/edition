@@ -7,3 +7,6 @@ Up to you : juste, il faut pouvoir ajouter les métadonnées et le fallback à c
 
 Editeur markdown / WYSIWYG
 http://hallojs.org/demo/markdown/
+
+
+http://www.startutorial.com/articles/view/how-to-build-a-file-upload-form-using-dropzonejs-and-php
