@@ -9,8 +9,6 @@ $book->get_chapter($chapters[0]);
 
 include 'tpl/index.tpl.php';
 
-print_r($book->get_chapter_info('tags'));
-
 $book->close_book();
 
 ?>
