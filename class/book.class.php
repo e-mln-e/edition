@@ -324,6 +324,33 @@ class book extends core {
 			return false;
 		}
 	}
+	
+	
+	public	function update_content($text, $chapter = null) {
+		if (!$chapter) $chapter = $this->get_chapter_info('id');
+		
+		// On protège les apostrophes du fichier
+		$text = addslashes($text);
+		
+		// On récupère l'ID de la version actuelle
+		$id_now = $this->get_chapter_info('content');
+		
+		// On ajout le nouveau texte à la table du contenu
+		$query =   'INSERT INTO contents (editor_id, chapter_id, content_text, content_previous)
+					VALUES (1, ' . $chapter . ', "' . $text . '", ' . $id_now . ')';
+		
+		if ($this->db->query($query)) {
+			$query = 'UPDATE chapters SET content_id = ' . $this->db->insert_id . ' WHERE chapter_id = ' . $chapter;
+			
+			if ($this->db->query($query)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 }
 
 ?>

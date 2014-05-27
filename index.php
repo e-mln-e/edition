@@ -2,6 +2,10 @@
 
 require_once 'includes.php';
 
+
+
+
+// Affichage du chapitre actuel
 $book->open_book(1);
 $book->get_summary();
 $chapters = $book->get_chapters();
