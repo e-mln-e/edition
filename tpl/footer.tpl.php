@@ -66,7 +66,7 @@
         </script>
         <script>
             $('#showLeft').waypoint('sticky', {
-              offset: 120
+              offset: -20
             });
             $('.sommaire').waypoint(function() {
                 if( $("ul.sommaire").hasClass("cbp-spmenu-open") ){
@@ -76,7 +76,8 @@
                 }
             }, {
               offset: function() {
-                return -$(this).height();
+                  var hauteur = return -$(this).height();
+                  return hauteur-58;
               }
             });
         </script>
