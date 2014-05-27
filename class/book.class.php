@@ -145,12 +145,32 @@ class book {
 	public	function get_authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
 		$authors = $this->get_chapter_info('editors');
 		
-		$return = '<' . $parent . '>';
+		$return = '<' . $parent;	
+			if ($parent_class) { $return .= ' class="' . $parent_class . '"'; }
+			if ($parent_id) { $return .= ' id="' . $parent_id . '"'; }
+		$return .= '>';
 		
 		foreach ($authors as $author) {
+			$return .= '<' . $child;
+				if ($child_class) { $return .= ' class="' . $child_class . '"'; }
+				if ($child_id) { $return .= ' id="' . $child_id . '"'; }
+			$return .= '>';
 			
+				if ($link) { $return .= '<a href="' . $core->tpl_get_link_to('author', $author) . '">'; }
+					
+					$return .= $user->get_the_nicename($author);
+				
+				if ($link) { $return .= '</a>'; }
+			
+			$return .= '</' . $child . '>';
 		}
+		
+		$return .= '</' . $parent . '>';
 	}
+	
+	//public	function authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
+	//	echo $this->get_authors($link, $parent, $child, $parent_class, $child_class, $parent_id, $child_id);
+	//}
 }
 
 ?>
