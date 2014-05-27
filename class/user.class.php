@@ -16,6 +16,19 @@ class user extends core {
 	
 	public	function __construct($db) {
 		$this->db = $db;
+		
+		if ($_COOKIE['user']) {
+			$query = 'SELECT user_id FROM users WHERE user_id = ' . $_COOKIE['user'];
+			$sql = $this->db->query($query);
+			
+			if ($sql->num_rows == 1) {
+				$this->connexion = true;
+			} else {
+				$this->connexion = false;
+			}
+		} else {
+			$this->connexion = false;
+		}
 	}
 	
 	
@@ -25,7 +38,14 @@ class user extends core {
 		if ($this->connexion) {
 			return true;
 		} else if ($_COOKIE['user']) {
-			return true;
+			$query = 'SELECT user_id FROM users WHERE user_id = ' . $_COOKIE['user'];
+			$sql = $this->db->query($query);
+			
+			if ($sql->num_rows == 1) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
@@ -49,15 +69,26 @@ class user extends core {
 		if ($this->check_login($login)) {
 			$query = 'SELECT * FROM users WHERE user_login = "' . $login . '"';
 			$sql = $this->db->query($query);
-			$row = $sql->fetch_assoc($sql);
+			$row = $sql->fetch_assoc();
 			
 			if ($row['user_pass'] == $this->crypt_password($pass)) {
 				$timeout = time() + (3600*24*5); // five day
 				setcookie('user', $row['user_id'], $timeout);
+				$this->tpl_redirection('dashboard');
 			} else {
-				tpl_redirection('login', 'erreur', 'password');
+				$this->tpl_redirection('login', 'error', 'password');
 			}
-		} else { tpl_redirection('login', 'erreur', 'login'); }
+		} else { $this->tpl_redirection('login', 'error', 'login'); }
+	}
+	
+	
+	// Méthodes d'affichage des erreurs de login
+	public	function is_error($type) {
+		if ($_POST['error'] == $type) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	
