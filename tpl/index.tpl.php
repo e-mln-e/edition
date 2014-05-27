@@ -9,7 +9,7 @@
                     <li>item 1</li>
                 </ul>
             </aside>
-            <section class="text-edit">
+            <section class="text-edit editable" id="source">
                 <?php $book->the_content(); ?>
             </section>
             <aside class="w400p">
