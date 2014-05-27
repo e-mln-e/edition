@@ -22,7 +22,7 @@
                     <h6>Attributs</h6>
                     <li id="mots-cles">Mots-clés</li>
                     <li>Collaborateurs</li>
-                    <li id="medias">
+                    <li id="medias">Medias 
                         <form action="/file-upload" class="dropzone" id="dropMedia">
                           <div class="fallback">
                             <input name="file" type="file" multiple />
