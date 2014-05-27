@@ -113,7 +113,7 @@ class book extends core {
 									'content'		=>	$row['content_id'],
 									'editors'		=>	explode(';', $row['chapter_editors']),
 									'name'			=>	$row['chapter_name'],
-									'tags'			=>	$row['chapter_tags'],
+									'tags'			=>	explode(',', $row['chapter_tags']),
 									'section_type'	=>	$row['chapter_section_type'],
 									'published'		=>	$row['chapter_published'],
 									'release'		=>	$row['chapter_release'] );
@@ -146,7 +146,7 @@ class book extends core {
 		$authors = $this->get_chapter_info('editors');
 		
 		$return = '<' . $parent;	
-			if ($parent_class) { $return .= ' class="' . $parent_class . '"'; }
+			if ($parent_class) { $return .= ' class="' . $parent_class . '"'; } else { $return .= ' class="author-list"'; }
 			if ($parent_id) { $return .= ' id="' . $parent_id . '"'; }
 		$return .= '>';
 		
@@ -179,28 +179,24 @@ class book extends core {
 		echo $this->get_authors($link, $parent, $child, $parent_class, $child_class, $parent_id, $child_id);
 	}
 	
-/*	public	function get_tags($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
-		$authors = $this->get_chapter_info('tags');
+	
+	public	function get_tags($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
+		$tags = $this->get_chapter_info('tags');
 		
 		$return = '<' . $parent;	
-			if ($parent_class) { $return .= ' class="' . $parent_class . '"'; } else {  }
+			if ($parent_class) { $return .= ' class="' . $parent_class . '"'; } else { $return .= ' class="tags-list"'; }
 			if ($parent_id) { $return .= ' id="' . $parent_id . '"'; }
 		$return .= '>';
 		
-		foreach ($authors as $author) {
+		foreach ($tags as $tag) {
 			$return .= '<' . $child;
 				if ($child_class) { $return .= ' class="' . $child_class . '"'; }
 				if ($child_id) { $return .= ' id="' . $child_id . '"'; }
 			$return .= '>';
 			
-				if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('author', $author) . '">'; }
+				if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('tag', $tag) . '">'; }
 					
-					$query = 'SELECT user_nicename, user_login FROM users WHERE user_id = ' . $author;
-					$sql = $this->db->query($query);
-					$row = $sql->fetch_array();
-					
-					if ($row[0]) { $return .= $row[0]; }
-					else { $return .= ucwords($row[1]); }
+					$return .= $tag;
 				
 				if ($link) { $return .= '</a>'; }
 			
@@ -210,7 +206,11 @@ class book extends core {
 		$return .= '</' . $parent . '>';
 		
 		return $return;
-	}*/
+	}
+	
+	public	function tags($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
+		echo $this->get_tags($link, $parent, $child, $parent_class, $child_class, $parent_id, $child_id);
+	}
 }
 
 ?>
