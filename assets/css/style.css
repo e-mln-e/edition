@@ -1533,7 +1533,7 @@ hr {
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-#showLeft.stuck{
+.element-sticky.stuck{
     position:fixed;
     top:58px;
     left:0px;

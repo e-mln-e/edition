@@ -66,7 +66,7 @@
         </script>
             <script type="text/javascript">
                 $(document).ready(function() {
-                    $('#showLeft').waypoint('sticky');
+                    $('.element-sticky').waypoint('sticky');
                 });
             </script>
         <script>
