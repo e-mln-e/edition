@@ -150,6 +150,8 @@ class book {
 			if ($parent_id) { $return .= ' id="' . $parent_id . '"'; }
 		$return .= '>';
 		
+		return $return; exit;
+		
 		foreach ($authors as $author) {
 			$return .= '<' . $child;
 				if ($child_class) { $return .= ' class="' . $child_class . '"'; }
@@ -166,11 +168,13 @@ class book {
 		}
 		
 		$return .= '</' . $parent . '>';
+		
+		return $return;
 	}
 	
-	//public	function authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
-	//	echo $this->get_authors($link, $parent, $child, $parent_class, $child_class, $parent_id, $child_id);
-	//}
+	public	function authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
+		echo $this->get_authors($link, $parent, $child, $parent_class, $child_class, $parent_id, $child_id);
+	}
 }
 
 ?>
