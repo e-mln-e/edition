@@ -211,6 +211,13 @@ class book extends core {
 	public	function tags($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
 		echo $this->get_tags($link, $parent, $child, $parent_class, $child_class, $parent_id, $child_id);
 	}
+	
+	
+	// Gestion des tags
+	
+	public	function tag_add($tag, $chapter = null) {
+		if (!$chapter) { $chapter = get_chapter_info('id'); }
+	}
 }
 
 ?>
