@@ -141,6 +141,16 @@ class book {
 		}
 	}
 	public	function the_content($id = null) { echo $this->get_the_content($id); }
+	
+	public	function get_authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
+		$authors = $this->get_chapter_info('editors');
+		
+		$return = '<' . $parent . '>'
+		
+		foreach ($authors as $author) {
+			
+		}
+	}
 }
 
 ?>
