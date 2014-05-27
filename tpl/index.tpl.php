@@ -17,7 +17,7 @@
                 <ul class="attributs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menu-attributs">
                     <h6>Attributs</h6>
                     <li id="mots-cles">Mots-clés</li><?php $book->tags(); ?>
-                    <li>Collaborateurs</li><?php $book->authors(true); ?>
+                    <li>Collaborateurs</li><?php //$book->authors(true); ?>
                    <li id="medias">Medias 
                         <form action="/file-upload" class="dropzone" id="dropMedia">
                           <div class="fallback">
