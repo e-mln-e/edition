@@ -159,6 +159,7 @@ class book extends core {
 				if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('author', $author) . '">'; }
 					
 					$query = 'SELECT user_nicename, user_login FROM users WHERE user_id = ' . $author;
+					echo $query; exit;
 					$sql = $this->db->query($query);
 					$row = $sql->fetch_array();
 					
