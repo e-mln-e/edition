@@ -27,9 +27,9 @@ class core {
 	}
 	
 	
-	public	function tpl_redirection($page, $attribut = null, $valeur = null) {
-		if ($attribut && $valeur) {
-			header( 'Location: index.php?page=' . $page . '&attribut=' . $attribut . '&valeur=' . $valeur);
+	public	function tpl_redirection($page, $attribut = null, $value = null) {
+		if ($attribut && $value) {
+			header( 'Location: index.php?page=' . $page . '&attribut=' . $attribut . '&value=' . $value);
 		} else {
 			header( 'Location: index.php?page=' . $page );
 		}
@@ -42,6 +42,15 @@ class core {
 	}
 	
 	
+	/*public	function tpl_get_link_to($page, $value = null, $attribut = null) {
+		if ($attribut && $value) {
+			return 'index.php?page=' . $page . '&attribut=' . $attribut . '&value=' . $value;
+		} else if ($value && !$attribut) {
+			return 'index.php?page=' . $page . '&attribut=id&value=' . $value;
+		} else {
+			return 'index.php?page=' . $page;
+		}
+	}*/
 }
 
 ?>
