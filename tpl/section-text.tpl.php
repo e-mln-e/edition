@@ -34,6 +34,7 @@
                 </div>
             </nav>
             <section class="text-edit pen hinted" data-toggle="pen" placeholder="im a placeholder">
+                <div id="editeurToolbar"></div>
                 <?php $book->content(); ?>
             </section>
             <aside class="w400p">
