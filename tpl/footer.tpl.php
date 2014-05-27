@@ -2,6 +2,7 @@
         
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
@@ -41,5 +42,8 @@
 				}
 			}
 		</script>
+        <script>
+            
+        </script>
     </body>
 </html>
