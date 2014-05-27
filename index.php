@@ -3,7 +3,7 @@
 require_once 'includes.php';
 
 // Si on doit renvoyer vers une page de login, avec ou sans erreur, on le fait maintenant
-if ($_GET['page'] == 'login' || !$user->check_connexion()) {
+if ((isset($_GET['page']) && $_GET['page'] == 'login') || !$user->check_connexion()) {
 	// On regarde si on a récupéré des informations de connexion
 	if (isset($_POST['login'], $_POST['pass'])) {
 		$user->login($_POST['login'], $_POST['pass']);
@@ -15,7 +15,7 @@ if ($_GET['page'] == 'login' || !$user->check_connexion()) {
 }
 
 // si la page demandée est le logout, on logout
-if ($_GET['page'] == 'logout') { $user->logout(); }
+if (isset($_GET['page']) && $_GET['page'] == 'logout') { $user->logout(); }
 
 
 // Affichage du chapitre actuel
