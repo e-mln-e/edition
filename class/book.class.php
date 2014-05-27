@@ -133,7 +133,8 @@ class book {
 		if ($sql->num_rows == 1) {
 			$row = $sql->fetch_assoc();
 			$content = $row['content_text'];
-			$content = utf8_encode($content);
+			
+			
 			
 			return nl2br($content);
 		} else {
