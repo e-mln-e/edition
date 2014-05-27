@@ -1,3 +1,4 @@
+<?php $core->tpl_load('header'); ?>
 <h1>Bienvenue sur Hypublish</h1>
 <h4>Outil d'écriture et de publication numérique</h4>
 <p>Cet outil est en version bêta</p>
@@ -10,3 +11,4 @@
 <button type="submit" name="connexion">Se connecter</button>
 </form>
 <p><a href="mailto:emeline.brule@ensad.fr">Demander un accès</a></p>
+<?php $core->tpl_load('footer'); ?>
