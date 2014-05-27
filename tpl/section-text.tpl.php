@@ -33,9 +33,11 @@
                     <button>Créer une section</button>
                 </div>
             </nav>
-            <section class="text-edit pen hinted" data-toggle="pen" placeholder="im a placeholder">
+            <section class="text-edit">
                 <div id="editeurToolbar"></div>
-                <?php $book->content(); ?>
+                <article class="pen hinted" data-toggle="pen" placeholder="im a placeholder">
+                        <?php $book->content(); ?>
+                </article>
             </section>
             <aside class="w400p">
             <p id="showRight"></p>

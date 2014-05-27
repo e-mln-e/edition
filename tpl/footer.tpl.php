@@ -5,8 +5,8 @@
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/markdown.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/pen.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/markdown.js"></script>
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
                 menuSommaire = document.getElementById( 'menu-sommaire' ),
