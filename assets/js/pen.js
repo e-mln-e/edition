@@ -61,7 +61,7 @@
     if(config.nodeType === 1) {
       defaults.editor = config;
     } else if(config.match && config.match(/^#[\S]+$/)) {
-      defaults.editor = document.getElementById(config.slice(1));
+      defaults.editor = doc.getElementById(config.slice(1));
     } else {
       defaults = utils.copy(defaults, config);
     }
@@ -147,19 +147,32 @@
     menu.innerHTML = icons;
     menu.style.display = 'none';
 
-    document.getElementById("editeurToolbar").appendChild((this._menu = menu));
+    doc.body.appendChild((this._menu = menu));
 
+    var setpos = function() {
+      if(menu.style.display === 'block') that.menu();
+    };
+
+    // change menu offset when window resize / scroll
+    window.addEventListener('resize', setpos);
+    window.addEventListener('scroll', setpos);
 
     var editor = this.config.editor;
     var toggle = function() {
 
-      //if(that._isDestroyed) return;
+      if(that._isDestroyed) return;
 
-    // utils.shift('toggle_menu', function() {
-          var range = that._sel;
+      utils.shift('toggle_menu', function() {
+        var range = that._sel;
+        if(!range.isCollapsed) {
+          //show menu
           that._range = range.getRangeAt(0);
-          //that.menu().highlight();
-     // }, 200);
+          that.menu().highlight();
+        } else {
+          //hide menu
+          that._menu.style.display = 'none';
+        }
+      }, 200);
     };
 
     // toggle toolbar on mouse select
@@ -179,7 +192,7 @@
         that._sel.addRange(that._range);
         that._actions(action, value);
         that._range = that._sel.getRangeAt(0);
-        //that.highlight().nostyle().menu();
+        that.highlight().nostyle().menu();
       };
 
       // create link
@@ -270,7 +283,7 @@
     };
 
     overall = function(cmd, val) {
-      var message = ' to exec ã€Œ' + cmd + 'ã€ command' + (val ? (' with value: ' + val) : '');
+      var message = ' to exec 「' + cmd + '」 command' + (val ? (' with value: ' + val) : '');
       if(document.execCommand(cmd, false, val) && that.config.debug) {
         utils.log('success' + message);
       } else {
@@ -317,17 +330,17 @@
   // show menu
   Pen.prototype.menu = function() {
 
-    //var offset = this._range.getBoundingClientRect()
-     // , top = offset.top - 10
-     // , left = offset.left + (offset.width / 2)
-     // , menu = this._menu;
+    var offset = this._range.getBoundingClientRect()
+      , top = offset.top - 10
+      , left = offset.left + (offset.width / 2)
+      , menu = this._menu;
 
     // display block to caculate it's width & height
     menu.style.display = 'block';
-    //menu.style.top = top - menu.clientHeight + 'px';
-    //menu.style.left = left - (menu.clientWidth/2) + 'px';
+    menu.style.top = top - menu.clientHeight + 'px';
+    menu.style.left = left - (menu.clientWidth/2) + 'px';
 
-    //return this;
+    return this;
   };
 
   Pen.prototype.stay = function() {

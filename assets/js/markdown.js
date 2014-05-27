@@ -50,7 +50,7 @@
   covertor.action = function(pen, cmd) {
 
     // only apply effect at line start
-    //if(pen._sel.focusOffset > cmd[1]) return;
+    if(pen._sel.focusOffset > cmd[1]) return;
 
     var node = pen._sel.focusNode;
     node.textContent = node.textContent.slice(cmd[1]);

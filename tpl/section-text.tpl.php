@@ -9,8 +9,10 @@
                 </div>
             </nav>
             <section class="text-edit">
-                <div id="editeurToolbar"></div>
-                <article class="pen hinted" data-toggle="pen" placeholder="im a placeholder">
+                <div id="test">youpila</div>
+                <div class="test"></div>
+
+                <article class="editable">
                         <?php $book->content(); ?>
                 </article>
             </section>
