@@ -65,9 +65,7 @@
             };
         </script>
         <script>
-            $('#showLeft').waypoint('sticky', {
-              offset: -20
-            });
+            $('#showLeft').waypoint('sticky');
             $('.sommaire').waypoint(function() {
                 if( $("ul.sommaire").hasClass("cbp-spmenu-open") ){
                     $("#menu-sommaire").toggleClass("cbp-spmenu-open");
