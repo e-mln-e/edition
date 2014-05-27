@@ -6,12 +6,8 @@
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>-->
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/rangycore.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/hallo.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/showdown.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/to-markdown.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/editor.js"></script>
-        
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/markdown.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/pen.js"></script>
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
                 menuSommaire = document.getElementById( 'menu-sommaire' ),
@@ -64,6 +60,44 @@
                 else { done(); }
               }
             };
+        </script>
+        <script type="text/javascript">
+
+          // config
+          var options = {
+            editor: document.querySelector('[data-toggle="pen"]'),
+            debug: true
+          };
+
+          // create editor
+          var pen = new Pen(options);
+
+
+          // toggle editor mode
+          document.querySelector('#mode').addEventListener('click', function() {
+            var text = this.textContent;
+
+            if(this.classList.contains('disabled')) {
+              this.classList.remove('disabled');
+              pen.rebuild();
+            } else {
+              this.classList.add('disabled');
+              pen.destroy();
+            }
+          });
+
+          // toggle editor mode
+          document.querySelector('#hinted').addEventListener('click', function() {
+            var pen = document.querySelector('.pen')
+
+            if(pen.classList.contains('hinted')) {
+              pen.classList.remove('hinted');
+              this.classList.add('disabled');
+            } else {
+              pen.classList.add('hinted');
+              this.classList.remove('disabled');
+            }
+          });
         </script>
        <!-- <script>
 
