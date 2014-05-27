@@ -4,6 +4,7 @@ class book {
 	
 	private	$db;
 	private $open_book;
+	private $summary;
 	
 	
 	public	function __construct($db) {
@@ -12,7 +13,7 @@ class book {
 	
 	
 	// Opening book
-	public	function opening($id) {
+	public	function open_book($id) {
 		$query = 'SELECT * FROM books WHERE book_id = ' . $id;
 		$sql = $this->db->query($query);
 		
@@ -29,6 +30,17 @@ class book {
 								'tags'			=>	$row['book_tags'],
 								'cover'			=>	$row['book_cover'] );
 								
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	public	function close_book() {
+		$open_book = array();
+		
+		if (!$open_book) {
 			return true;
 		} else {
 			return false;
@@ -61,6 +73,25 @@ class book {
 	
 	public	function get_the_cover() { return $this->open_book['cover']; }
 	public	function the_cover() { echo $this->get_the_cover(); }
+	
+	
+	public	function get_summary($book_id) {
+		$query = 'SELECT * FROM summaries WHERE summary_id = ' . $book_id;
+		$sql = $this->db->query($query);
+		
+		if ($sql->num_rows == 1) {
+			$row = $sql->fetch_assoc();
+			
+			$this->summary = array(	'id'		=>	$row['summary_id'],
+									'active'	=>	$row['summary_active'],
+									'timestamp'	=>	$row['summary_timestamp'],
+									'chapters'	=>	$row['summary_chapters'] );
+			
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }
 

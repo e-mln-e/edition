@@ -1,8 +1,6 @@
 <?php
 
-require_once('includes.php');
-
-//include 'tpl/index.html';
+require_once 'includes.php';
 
 include 'tpl/index.tpl.php';
 
