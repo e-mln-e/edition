@@ -145,7 +145,7 @@ class book {
 	public	function get_authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
 		$authors = $this->get_chapter_info('editors');
 		
-		$return = '<' . $parent . '>'
+		$return = '<' . $parent . '>';
 		
 		foreach ($authors as $author) {
 			
