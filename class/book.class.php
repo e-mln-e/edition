@@ -88,7 +88,7 @@ class book extends core {
 			$this->summary = array(	'id'		=>	$row['summary_id'],
 									'active'	=>	$row['summary_active'],
 									'timestamp'	=>	$row['summary_timestamp'],
-									'chapters'	=>	$row['summary_chapters'] );
+									'chapters'	=>	$row['summary_sections'] );
 			
 			return true;
 		} else {
@@ -99,7 +99,7 @@ class book extends core {
 	public	function get_summary_info($info) { return $this->summary[$info]; }
 	public	function summary_info($info) { echo $this->get_summary_info($info); }
 	
-	public	function get_chapters() { return $this->summary['chapters']; }
+	public	function get_chapters() { return unserialize($this->summary['chapters']); }
 	
 	
 	public	function get_chapter($id) {
