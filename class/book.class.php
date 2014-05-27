@@ -178,6 +178,39 @@ class book extends core {
 	public	function authors($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
 		echo $this->get_authors($link, $parent, $child, $parent_class, $child_class, $parent_id, $child_id);
 	}
+	
+/*	public	function get_tags($link = false, $parent = 'ul', $child = 'li', $parent_class = null, $child_class = null, $parent_id = null, $child_id = null) {
+		$authors = $this->get_chapter_info('tags');
+		
+		$return = '<' . $parent;	
+			if ($parent_class) { $return .= ' class="' . $parent_class . '"'; } else {  }
+			if ($parent_id) { $return .= ' id="' . $parent_id . '"'; }
+		$return .= '>';
+		
+		foreach ($authors as $author) {
+			$return .= '<' . $child;
+				if ($child_class) { $return .= ' class="' . $child_class . '"'; }
+				if ($child_id) { $return .= ' id="' . $child_id . '"'; }
+			$return .= '>';
+			
+				if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('author', $author) . '">'; }
+					
+					$query = 'SELECT user_nicename, user_login FROM users WHERE user_id = ' . $author;
+					$sql = $this->db->query($query);
+					$row = $sql->fetch_array();
+					
+					if ($row[0]) { $return .= $row[0]; }
+					else { $return .= ucwords($row[1]); }
+				
+				if ($link) { $return .= '</a>'; }
+			
+			$return .= '</' . $child . '>';
+		}
+		
+		$return .= '</' . $parent . '>';
+		
+		return $return;
+	}*/
 }
 
 ?>
