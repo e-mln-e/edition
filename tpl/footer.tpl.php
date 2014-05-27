@@ -1,8 +1,8 @@
 
         
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>
+        <!--<script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>-->
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/rangycore.js"></script>
@@ -64,12 +64,7 @@
               }
             };
         </script>
-            <script type="text/javascript">
-                $('#showLeft').waypoint(function() {
-                  notify('10 pixels from the top');
-                }, { offset: 10 });
-            </script>
-        <script>
+       <!-- <script>
 
             $('.sommaire').waypoint(function() {
                 if( $("ul.sommaire").hasClass("cbp-spmenu-open") ){
@@ -83,6 +78,6 @@
                   return hauteur-58;
               }
             });
-        </script>
+        </script>-->
     </body>
 </html>

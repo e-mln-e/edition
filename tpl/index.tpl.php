@@ -1,6 +1,6 @@
 <?php $core->tpl_load('header'); ?>
         <main>
-            <aside class="w300p element-sticky">
+            <aside class="w300p">
             <p id="showLeft"></p>
                 <ul class="sommaire cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menu-sommaire">
                     <h6>Sommaire</h6>
