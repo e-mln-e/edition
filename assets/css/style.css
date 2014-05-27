@@ -1579,7 +1579,7 @@ ul.attributs li{
     background:#de5051;
     color:white;
 }
-#medias button{
+#medias form{
     position:absolute;
     border:0;
     -webkit-border-radius: 5px;

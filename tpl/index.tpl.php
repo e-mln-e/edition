@@ -22,12 +22,12 @@
                     <h6>Attributs</h6>
                     <li id="mots-cles">Mots-clés</li>
                     <li>Collaborateurs</li>
-                    <li id="medias"><form action="/file-upload" class="dropzone">
+                    <li id="medias">
+                        <form action="/file-upload" class="dropzone" id="dropMedia">
                           <div class="fallback">
                             <input name="file" type="file" multiple />
                           </div>
                         </form> 
-                        <button>Upload</button>
                     </li>
                     <li class="media-uploaded"><img src="http://www.picturetopeople.org/images/artistic_mosaic_photo_effect_input.jpg"/>
                     <div class="metadata-medias"><br>Type : image 

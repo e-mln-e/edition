@@ -43,7 +43,18 @@
 			}
 		</script>
         <script>
-            
+            Dropzone.options.dropMedia = {
+              paramName: "file", // The name that will be used to transfer the file
+              maxFilesize: 2, // MB
+              uploadMultiple: true,
+              previewsContainer: 'li.media-uploaded'
+              accept: function(file, done) {
+                if (file.name == "justinbieber.jpg") {
+                  done("Naha, you don't.");
+                }
+                else { done(); }
+              }
+            };
         </script>
     </body>
 </html>
