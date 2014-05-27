@@ -82,6 +82,13 @@ class user extends core {
 	}
 	
 	
+	// Méthode de déconnexion
+	public	function logout() {
+		setcookie('user', null, time()-1);
+		$this->tpl_redirection();
+	}
+	
+	
 	// Méthodes d'affichage des erreurs de login
 	public	function is_error($type) {
 		if ($_POST['error'] == $type) {

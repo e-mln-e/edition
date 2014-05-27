@@ -27,12 +27,14 @@ class core {
 	}
 	
 	
-	public	function tpl_redirection($page, $attribut = null, $value = null) {
-		if ($attribut && $value) {
+	public	function tpl_redirection($page = null, $attribut = null, $value = null) {
+		if ($page && $attribut && $value) :
 			header( 'Location: index.php?page=' . $page . '&attribut=' . $attribut . '&value=' . $value);
-		} else {
+		elseif ($page) :
 			header( 'Location: index.php?page=' . $page );
-		}
+		else :
+			header( 'Location: index.php' );
+		endif;
 	}
 	
 	

@@ -14,6 +14,9 @@ if ($_GET['page'] == 'login' || !$user->check_connexion()) {
 	}
 }
 
+// si la page demandée est le logout, on logout
+if ($_GET['page'] == 'logout') { $user->logout(); }
+
 
 // Affichage du chapitre actuel
 $book->open_book(1);
