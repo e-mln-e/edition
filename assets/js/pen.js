@@ -147,32 +147,19 @@
     menu.innerHTML = icons;
     menu.style.display = 'none';
 
-    doc.body.appendChild((this._menu = menu));
+    document.getElementById("editeurToolbar").appendChild((this._menu = menu));
 
-    var setpos = function() {
-      if(menu.style.display === 'block') that.menu();
-    };
-
-    // change menu offset when window resize / scroll
-    window.addEventListener('resize', setpos);
-    window.addEventListener('scroll', setpos);
 
     var editor = this.config.editor;
     var toggle = function() {
 
-      if(that._isDestroyed) return;
+      //if(that._isDestroyed) return;
 
-      utils.shift('toggle_menu', function() {
-        var range = that._sel;
-        if(!range.isCollapsed) {
-          //show menu
+    // utils.shift('toggle_menu', function() {
+          var range = that._sel;
           that._range = range.getRangeAt(0);
-          that.menu().highlight();
-        } else {
-          //hide menu
-          that._menu.style.display = 'none';
-        }
-      }, 200);
+          //that.menu().highlight();
+     // }, 200);
     };
 
     // toggle toolbar on mouse select
@@ -192,7 +179,7 @@
         that._sel.addRange(that._range);
         that._actions(action, value);
         that._range = that._sel.getRangeAt(0);
-        that.highlight().nostyle().menu();
+        //that.highlight().nostyle().menu();
       };
 
       // create link
@@ -330,17 +317,17 @@
   // show menu
   Pen.prototype.menu = function() {
 
-    var offset = this._range.getBoundingClientRect()
-      , top = offset.top - 10
-      , left = offset.left + (offset.width / 2)
-      , menu = this._menu;
+    //var offset = this._range.getBoundingClientRect()
+     // , top = offset.top - 10
+     // , left = offset.left + (offset.width / 2)
+     // , menu = this._menu;
 
     // display block to caculate it's width & height
     menu.style.display = 'block';
-    menu.style.top = top - menu.clientHeight + 'px';
-    menu.style.left = left - (menu.clientWidth/2) + 'px';
+    //menu.style.top = top - menu.clientHeight + 'px';
+    //menu.style.left = left - (menu.clientWidth/2) + 'px';
 
-    return this;
+    //return this;
   };
 
   Pen.prototype.stay = function() {
