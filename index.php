@@ -9,8 +9,6 @@ $book->get_chapter($chapters[0]);
 
 include 'tpl/index.tpl.php';
 
-$book->authors(true);
-
 $book->close_book();
 
 ?>

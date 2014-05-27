@@ -1,6 +1,6 @@
 <?php
 
-class book extends user {
+class book extends core {
 	
 	private	$db;
 	private $open_book;
@@ -158,12 +158,12 @@ class book extends user {
 			
 				if ($link) { $return .= '<a href="' . $this->tpl_get_link_to('author', $author) . '">'; }
 					
-					$query = 'SELECT user_nicename, user_login FROM users WHERE user_id ' . $author;
+					$query = 'SELECT user_nicename, user_login FROM users WHERE user_id = ' . $author;
 					$sql = $this->db->query($query);
 					$row = $sql->fetch_array();
 					
 					if ($row[0]) { $return .= $row[0]; }
-					else { $return .= $row[1]; }
+					else { $return .= ucwords($row[1]); }
 				
 				if ($link) { $return .= '</a>'; }
 			
