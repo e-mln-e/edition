@@ -1,6 +1,7 @@
 
         
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery-ui.js"></script>
         <!--<script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>-->
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
