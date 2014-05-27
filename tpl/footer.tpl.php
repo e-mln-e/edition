@@ -65,7 +65,9 @@
             };
         </script>
         <script>
-            $('#showLeft').waypoint('sticky');
+            $(document).ready(function() {
+                $('#showLeft').waypoint('sticky');
+            });
             $('.sommaire').waypoint(function() {
                 if( $("ul.sommaire").hasClass("cbp-spmenu-open") ){
                     $("#menu-sommaire").toggleClass("cbp-spmenu-open");
