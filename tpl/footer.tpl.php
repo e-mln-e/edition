@@ -65,9 +65,9 @@
             };
         </script>
             <script type="text/javascript">
-                $(document).ready(function() {
-                    $('.element-sticky').waypoint('sticky');
-                });
+                $('#showLeft').waypoint(function() {
+                  notify('10 pixels from the top');
+                }, { offset: 10 });
             </script>
         <script>
 
