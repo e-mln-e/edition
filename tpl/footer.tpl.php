@@ -65,8 +65,9 @@
             
             $('.editable').on('input', function() {
                 //var htmlString = $('.editable').html();
-                $.post( "test.php", $( ".editable" ).serialize() );
+               $.post( "tpl/test.html", $( ".editable" ) );
             });
+
         </script>
     </body> 
 </html>

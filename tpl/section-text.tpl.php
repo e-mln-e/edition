@@ -14,8 +14,6 @@
                 <article class="editable">
                         <?php $book->content(); ?>
                 </article>
-                <div id="editeurToolbar"></div>
-                <article class="pen hinted" data-toggle="pen" placeholder="im a placeholder"><?php $book->content(); ?></article>
             </section>
             <aside class="w400p">
             <p id="showRight"></p>
