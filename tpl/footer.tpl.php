@@ -64,8 +64,8 @@
          var editor = new MediumEditor('.editable');
             
             $('.editable').on('input', function() {
-            var htmlString = $('.editable').html();
-               $.post( "tpl/test.html", htmlString );
+            	var htmlString = $('.editable').html();
+				$.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $_GET['id']; ?> } );
             });
 
         </script>
