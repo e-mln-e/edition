@@ -12,7 +12,7 @@
 
                 <article class="editable" data-placeholder="RAAAAAAAH">
                         <!--<?php $book->content(); ?>-->
-                    <div class="test"></div>
+                    <div class="result"></div>
                     <p>Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une Wurschtsalad avec un picon bitte, s'il te plaît.
   Voss ? Une Carola et du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !</p> 
 <p>Hopla vous savez que la mamsell Huguette, la miss Miss Dahlias du messti de Bischheim était au Christkindelsmärik en compagnie de Richard Schirmeck (celui qui a un blottkopf), le mari de Chulia Roberstau, qui lui trempait sa Nüdle dans sa Schneck ! Yo dû, Pfourtz ! Ch'espère qu'ils avaient du Kabinetpapier, Gal !</p>
@@ -26,13 +26,7 @@
                     <h6>Attributs</h6>
                     <li id="mots-cles">Mots-clés</li><?php $book->tags(); ?>
                     <li>Collaborateurs</li><?php $book->authors(true); ?>
-                   <li id="medias">Medias 
-                        <form action="/file-upload" class="dropzone" id="dropMedia">
-                          <div class="fallback">
-                            <input name="file" type="file" multiple />
-                          </div>
-                        </form> 
-                    </li>
+                   <li id="medias">Medias </li>
                     <li class="media-uploaded"><img src="http://www.picturetopeople.org/images/artistic_mosaic_photo_effect_input.jpg"/>
                     <div class="metadata-medias"><br>Type : image 
                     <br>Text-alternatif* : Ceci est un chat avec un chapeau. 
