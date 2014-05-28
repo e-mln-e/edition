@@ -72,10 +72,8 @@
                   }
                 });
               });
-             /* $.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> }, function(data){
-                        $(".test").text( data );
-                                                        
-                 });*/
+
+            $('.editable').on('input', function() {
               
               setInterval(function () {
                   var allContents = editor.serialize();
@@ -88,8 +86,9 @@
 				  }) .done(function(html) {
 					 $("#result").html(html); 
 				  });
-              }, 3000);
+              }, 30000);
                
+            });
         </script>
     </body> 
 </html>
