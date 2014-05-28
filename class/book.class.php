@@ -414,7 +414,7 @@ class book extends core {
 							
 							if ($sql->num_rows) {
 								$row = $sql->fetch_array();
-								$return .= '<a href="' . $this->tpl_get_link_to('chapter', $key) . '">';
+								$return .= '<a href="' . $this->tpl_get_link_to('section', $key) . '">';
 									$return .= utf8_encode($row[0]);
 								$return .= '</a>';
 							} else {
