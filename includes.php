@@ -28,11 +28,13 @@ function __autoload($class_name) {
 	$core =	new core($mysqli);
 	$user = new user($mysqli);
 	$book = new book($mysqli);
+	$media = new media($mysqli);
 
 
 // On nomme ces variables comme globales
 global $core;
 global $user;
 global $book;
+global $media;
 
 ?>
