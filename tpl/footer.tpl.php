@@ -62,22 +62,19 @@
 
 
 //editeur markdown
-
          var editor = new MediumEditor('.editable');
-            
-            $('.editable').on('input', function() {
-            	var htmlString = $('.editable').html();
-				$.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> } );
-            });
-             $('.editable').mediumInsert({
-                editor: editor,
-                addons: {
-                  images: {}
-                }
+
+              $(function () {
+                $('.editable').mediumInsert({
+                  editor: editor,
+                  addons: {
+                    images: {  }
+                  }
+                });
               });
-                var allContents = editor.serialize();
-                var elContent = allContents["element-0"].value;
-                $('#test').text(elContent);
+                //var allContents = editor.serialize();
+                //var htmlString = allContents["element-0"].value;
+              //$.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> } );
         </script>
     </body> 
 </html>
