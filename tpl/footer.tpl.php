@@ -7,7 +7,7 @@
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditor.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditorInsertPlugin.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditorInsertImages.js"></script> 
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditorInsertImages.js"></script>
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
                 menuSommaire = document.getElementById( 'menu-sommaire' ),
@@ -46,22 +46,22 @@
             
             
 // Dropage des fichiers 
-            Dropzone.options.dropMedia = {
-              paramName: "file", // The name that will be used to transfer the file
-              maxFilesize: 2, // MB
-              uploadMultiple: true,
-              previewsContainer: 'li.media-uploaded',
-              dictDefaultMessage: 'Choisir un fichier',
-              accept: function(file, done) {
-                if (file.name == "justinbieber.jpg") {
-                  done("Naha, you don't.");
-                }
-                else { done(); }
-              }
-            };
+            //Dropzone.options.dropMedia = {
+              //paramName: "file", // The name that will be used to transfer the file
+              //maxFilesize: 2, // MB
+              //uploadMultiple: true,
+              //previewsContainer: 'li.media-uploaded',
+              //dictDefaultMessage: 'Choisir un fichier',
+              //accept: function(file, done) {
+                //if (file.name == "justinbieber.jpg") {
+                  //done("Naha, you don't.");
+                //}
+                //else { done(); }
+              //}
+            //};
 
 
-//editeur markdown
+//editeur live
          var editor = new MediumEditor('.editable');
 
               $(function () {
@@ -71,8 +71,8 @@
                     images: { imagesUploadScript: 'admin-ajax.php?action=upload-media' }
                   }
                 });
-              });
-
+             });
+            
             $('.editable').on('input', function() {
                 var allContents = editor.serialize();
                   var htmlString = allContents["element-0"].value;
