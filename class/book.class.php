@@ -337,7 +337,7 @@ class book extends core {
 		
 		// On ajout le nouveau texte à la table du contenu
 		$query =   'INSERT INTO contents (editor_id, chapter_id, content_text, content_previous)
-					VALUES (1, ' . $chapter . ', "' . $text . '", ' . $id_now . ')';
+					VALUES (' . $_COOKIE['user'] . ', ' . $chapter . ', "' . $text . '", ' . $id_now . ')';
 		
 		if ($this->db->query($query)) {
 			$query = 'UPDATE chapters SET content_id = ' . $this->db->insert_id . ' WHERE chapter_id = ' . $chapter;
