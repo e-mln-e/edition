@@ -19,12 +19,12 @@ $pdf->SetFont('Arial', '', 14);
 		$chapters = $book->get_chapters();
 		$book->get_chapter($chapters[0]);
 		
-		$content = utf8_decode($book->get_content());
+		$content = 'timestamp: ' . date('d/m/Y H:i:s') . ' \n ' . utf8_decode($book->get_content());
 			
 	$book->close_book();
 	
 	
-$pdf->Cell(40, 10, $content);
+$pdf->AjouterChapitre(0, 0, $content);
 
 // On affiche le tout
 $pdf->Output();
