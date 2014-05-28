@@ -19,11 +19,13 @@ else if (isset($_GET['action']) && $_GET['action'] == 'upload-media') {
 	
 	// On lance le script d'upload
 	
-	if ($media->upload($_FILES['file'])) {
+	/*if ($media->upload($_FILES['file'])) {
 		echo 'Réussite';
 	} else {
 		echo 'Échec';
-	}
+	}*/
+	
+	$media->upload($_FILES['file'], true);
 
 }
 
