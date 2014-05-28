@@ -6,6 +6,8 @@
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
         <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditor.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditorInsertPlugin.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditorInsertImages.js"></script> 
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
                 menuSommaire = document.getElementById( 'menu-sommaire' ),
@@ -67,7 +69,15 @@
             	var htmlString = $('.editable').html();
 				$.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> } );
             });
-
+             $('.editable').mediumInsert({
+                editor: editor,
+                addons: {
+                  images: {}
+                }
+              });
+                var allContents = editor.serialize();
+                var elContent = allContents["element-0"].value;
+                $('#test').text(elContent);
         </script>
     </body> 
 </html>
