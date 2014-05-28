@@ -72,9 +72,13 @@
                   }
                 });
               });
-                //var allContents = editor.serialize();
-                //var htmlString = allContents["element-0"].value;
-              //$.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> } );
+                var allContents = editor.serialize();
+                var htmlString = allContents["element-0"].value;
+              $.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> }, function(data){
+                        $(".test").text( data );
+                                                        
+                 });
+               
         </script>
     </body> 
 </html>
