@@ -64,8 +64,8 @@
          var editor = new MediumEditor('.editable');
             
             $('.editable').on('input', function() {
-                var htmlString = $('.editable').html();
-                $('#test').text( htmlString );
+                //var htmlString = $('.editable').html();
+                $.post( "test.php", $( ".editable" ).serialize() );
             });
         </script>
     </body> 

@@ -9,17 +9,13 @@
                 </div>
             </nav>
             <section class="text-edit">
-<<<<<<< HEAD
                 <div id="test">youpila</div>
-                <div class="test"></div>
 
                 <article class="editable">
                         <?php $book->content(); ?>
                 </article>
-=======
                 <div id="editeurToolbar"></div>
                 <article class="pen hinted" data-toggle="pen" placeholder="im a placeholder"><?php $book->content(); ?></article>
->>>>>>> 87eadb693c2e8348a0c8b02c5766d228f54a33e8
             </section>
             <aside class="w400p">
             <p id="showRight"></p>
