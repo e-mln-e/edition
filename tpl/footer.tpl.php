@@ -68,13 +68,23 @@
                 $('.editable').mediumInsert({
                   editor: editor,
                   addons: {
-                    images: {  }
+                    images: { imagesUploadScript: 'admin-ajax.php?action=upload-media' }
                   }
                 });
               });
 
             $('.editable').on('input', function() {
-              
+                var allContents = editor.serialize();
+                  var htmlString = allContents["element-0"].value;
+	              $.ajax({
+	              	  type: "POST",
+		              url: "admin-ajax.php?action=content",
+					  data: { content: htmlString, section: <?php echo $book->get_chapter_info('id'); ?> },
+					  dataType: "html",
+				  }) .done(function(html) {
+					 $("#result").html(html); 
+				  });
+                
               setInterval(function () {
                   var allContents = editor.serialize();
                   var htmlString = allContents["element-0"].value;
