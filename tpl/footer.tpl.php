@@ -74,10 +74,19 @@
               });
                 var allContents = editor.serialize();
                 var htmlString = allContents["element-0"].value;
-              $.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> }, function(data){
+             /* $.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> }, function(data){
                         $(".test").text( data );
                                                         
-                 });
+                 });*/
+                 
+              $.ajax({
+              	  type: "POST",
+	              url: "admin-ajax.php?action=content",
+				  data: { content: htmlString, section: <?php echo $book->get_chapter_info('id'); ?> },
+				  dataType: html,
+			  }) .done(function(html) {
+				 $("#result").append(html); 
+			  });
                
         </script>
     </body> 
