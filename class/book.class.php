@@ -333,11 +333,14 @@ class book extends core {
 		$text = addslashes($text);
 		
 		// On récupère l'ID de la version actuelle
-		$id_now = $this->get_chapter_info('content');
+		$query = 'SELECT content_id FROM chapters WHERE chapter_id = ' . $chapter;
+		$sql = $this->db->query($query);
+		$row = $sql->fetch_array();
+		$id_now = $row[0];
 		
 		// On ajout le nouveau texte à la table du contenu
 		$query =   'INSERT INTO contents (editor_id, chapter_id, content_text, content_previous)
-					VALUES (' . $_COOKIE['user'] . ', ' . $chapter . ', "' . $text . '", ' . $id_now . ')';
+					VALUES (' . $_COOKIE['user'] . ', ' . $chapter . ', "' . utf8_decode($text) . '", ' . $id_now . ')';
 		
 		if ($this->db->query($query)) {
 			$query = 'UPDATE chapters SET content_id = ' . $this->db->insert_id . ' WHERE chapter_id = ' . $chapter;
