@@ -11,7 +11,7 @@
             <section class="text-edit">
                     <div id="result"></div>
 
-                <article class="editable" data-placeholder="RAAAAAAAH"><?php $book->content(); ?></article>
+                <article class="editable" data-placeholder="Editer le texte"><?php $book->content(); ?><p>test</p></article>
             </section>
             <aside class="w400p">
             <p id="showRight"></p>
