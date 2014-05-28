@@ -28,7 +28,7 @@ class media extends core {
 									' . $_COOKIE['user'] . ')';
 									
 				if ($this->db->query($query)) {
-					if ($verbose) : echo 'Réussite'; else : return true; endif;
+					if ($verbose) : echo $destination; else : return true; endif;
 				} else {
 					if ($verbose) : echo 'Échec MySQL'; else : return false; endif;
 				}
