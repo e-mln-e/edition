@@ -65,7 +65,7 @@
             
             $('.editable').on('input', function() {
             	var htmlString = $('.editable').html();
-				$.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $_GET['id']; ?> } );
+				$.post( "admin-ajax.php?action=content", { content : htmlString , section : <?php echo $book->get_chapter_info('id'); ?> } );
             });
 
         </script>
