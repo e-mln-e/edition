@@ -1,13 +1,4 @@
 
-        
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/jquery.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/dropzone.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditor.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditorInsertPlugin.js"></script>
-        <script src="<?php $core->tpl_go_to_assets('js'); ?>/mediumEditorInsertImages.js"></script>
         <script>
 			var menuGeneral = document.getElementById( 'menu-general' ),
                 menuSommaire = document.getElementById( 'menu-sommaire' ),
@@ -26,13 +17,16 @@
 				classie.toggle( menuAttributs, 'cbp-spmenu-close' );
 			};
 			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuGeneral, 'cbp-spmenu-open' );
-                classie.toggle( showLeft, 'cbp-spmenu-push-toright' );
-                classie.toggle( menuSommaire, 'cbp-spmenu-push-toright' );
-			};
+                    classie.toggle( this, 'active' );
+                    classie.toggle( body, 'cbp-spmenu-push-toright' );
+                    classie.toggle( menuGeneral, 'cbp-spmenu-open' );
+                    classie.toggle( showLeft, 'cbp-spmenu-push-toright' );
+                    classie.toggle( menuSommaire, 'cbp-spmenu-push-toright' );
+            };
             
+            $('#editable').waypoint(function() {
+              notify('Basic example callback triggered.');
+            });
             
             $('.sommaire.cbp-spmenu-open').waypoint(function() {
                 classie.toggle( showLeft, 'active' );
@@ -60,22 +54,9 @@
               //}
             //};
 
-
 //editeur live
-         var editor = new MediumEditor('.editable');
-
-              $(function () {
-                $('.editable').mediumInsert({
-                  editor: editor,
-                  addons: {
-                    images: { imagesUploadScript: 'admin-ajax.php?action=upload-media' }
-                  }
-                });
-             });
-            
-            $('.editable').on('input', function() {
-                var allContents = editor.serialize();
-                  var htmlString = allContents["element-0"].value;
+Aloha.bind( 'aloha-editable-activated', function(){
+                var htmlString = $(".editable").html();
 	              $.ajax({
 	              	  type: "POST",
 		              url: "admin-ajax.php?action=content",
@@ -83,11 +64,10 @@
 					  dataType: "html",
 				  }) .done(function(html) {
 					 $("#result").html(html); 
-				  });
+                     });
                 
               setInterval(function () {
-                  var allContents = editor.serialize();
-                  var htmlString = allContents["element-0"].value;
+                  var htmlString = $(".editable").html();
 	              $.ajax({
 	              	  type: "POST",
 		              url: "admin-ajax.php?action=content",
@@ -97,8 +77,46 @@
 					 $("#result").html(html); 
 				  });
               }, 30000);
-               
+
+});
+        </script>
+        <script>
+        
+        Aloha.ready( function(){
+            $(".editable").mouseup(function(e){ 
+                if (typeof window.getSelection != "undefined" && window.getSelection().toString().length ) {                    
+                    $('#tab-ui-container-1, #tab-ui-container-3, #tab-ui-container-4').css({ "position": "absolute", "top": e.clientY, "left": e.clientX });
+                    $('#tab-ui-container-1').show();
+                } else {
+                    $('#tab-ui-container-3, #tab-ui-container-4').css({ "position": "absolute", "top": e.pageY, "left": e.pageX });
+                    $('#tab-ui-container-1').hide();
+                }
+                
             });
+            $(".editable").keyup(function(e){  
+                if (typeof window.getSelection != "undefined" && window.getSelection().toString().length ) {
+                    $('#tab-ui-container-1, #tab-ui-container-3, #tab-ui-container-4').css({ "position": "absolute", "top": e.pageY, "left": e.pageX });
+                    $('#tab-ui-container-1').show();
+                } else {
+                    $('#tab-ui-container-3, #tab-ui-container-4').css({ "position": "absolute", "top": e.pageY, "left": e.pageX });
+                    $('#tab-ui-container-1').hide();
+                }
+                
+            });
+            if ( $("#tab-ui-container-3").is(":visible") ) {
+                $('#tab-ui-container-1').hide();
+            } else {  
+            }
+
+            $('.editable').aloha().ready(function(){
+                $('#tab-ui-container-2').show();
+                $('#tab-ui-container-1').hide();
+            });
+        });
+        Aloha.bind('aloha-editable-activated', function (event, alohaEvent) {
+                    $('#tab-ui-container-1').css({ "top" : "-1000px", "position" : "absolute" });
+                });
+            
         </script>
     </body> 
 </html>

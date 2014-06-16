@@ -12,9 +12,28 @@
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/aloha/lib/vendor/jquery-1.7.2.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/waypoints-sticky.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/classie.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/pen.js"></script>
         <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('css'); ?>/style.css" media="all">
         <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('css'); ?>/default.css" media="all">
         <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('css'); ?>/component.css" media="all">
+        <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('css'); ?>/pen.css" media="all">
+         <link rel="stylesheet" href="<?php $core->tpl_go_to_assets('js'); ?>/aloha/css/aloha.css" type="text/css">
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/aloha/lib/require.js"></script>
+        <script src="<?php $core->tpl_go_to_assets('js'); ?>/aloha/lib/aloha.js" data-aloha-plugins="common/ui, common/format, common/list, common/link,
+                                common/horizontalruler,
+                                common/pagebreak,
+		                        common/block,
+		                        common/undo,
+		                        common/image,
+		                        common/contenthandler,
+		                        common/paste,
+		                        common/commands,
+		                        extra/headerids,
+                                extra/draganddropfiles "></script>
     </head>
     
     <body class="cbp-spmenu-push">

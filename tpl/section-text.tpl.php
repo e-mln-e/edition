@@ -9,9 +9,11 @@
                 </div>
             </nav>
             <section class="text-edit">
-                    <div id="result"></div>
-
-                <article class="editable" data-placeholder="Editer le texte"><?php $book->content(); ?></article>
+                <div id="result"></div>
+                <article class="editable" id="editable" contenteditable="true" data-placeholder="Editer le texte"><?php $book->content(); ?></article>
+                <div id="toolbar-place">
+                    <div id="toolbar"></div>
+                </div>
             </section>
             <aside class="w400p">
             <p id="showRight"></p>

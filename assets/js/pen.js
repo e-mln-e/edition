@@ -1,5 +1,5 @@
 /*! Licensed under MIT, https://github.com/sofish/pen */
-(function(doc) {
+~function(doc) {
 
   var Pen, FakePen, utils = {};
 
@@ -27,19 +27,14 @@
 
   // shift a function
   utils.shift = function(key, fn, time) {
-    time = time || 50;
-    var queue = this['_shift_fn' + key], timeout = 'shift_timeout' + key, current;
-    if ( queue ) {
-      queue.concat([fn, time]);
-    }
-    else {
-      queue = [[fn, time]];
-    }
-    current = queue.pop();
-    clearTimeout(this[timeout]);
-    this[timeout] = setTimeout(function() {
-      current[0]();
-    }, time);
+      time = time || 50;
+      var queue = this['_shift_fn' + key], timeout = 'shift_timeout' + key, current;
+      queue ? queue.concat([fn, time]) : (queue = [[fn, time]]);
+      current = queue.pop();
+      clearTimeout(this[timeout]);
+      this[timeout] = setTimeout(function() {
+        current[0]();
+      }, time);
   };
 
   // merge: make it easy to have a fallback
@@ -53,7 +48,7 @@
       textarea: '<textarea name="content"></textarea>',
       list: [
         'blockquote', 'h2', 'h3', 'p', 'insertorderedlist', 'insertunorderedlist', 'inserthorizontalrule',
-        'indent', 'outdent', 'bold', 'italic', 'underline', 'createlink'
+        'indent', 'outdent', 'bold', 'italic', 'underline', 'createlink','superscript','subscript', 'JustifyCenter'
       ]
     };
 
@@ -61,7 +56,7 @@
     if(config.nodeType === 1) {
       defaults.editor = config;
     } else if(config.match && config.match(/^#[\S]+$/)) {
-      defaults.editor = doc.getElementById(config.slice(1));
+      defaults.editor = document.getElementById(config.slice(1));
     } else {
       defaults = utils.copy(defaults, config);
     }
@@ -101,14 +96,10 @@
     this.toolbar();
 
     // enable markdown covert
-    if (this.markdown) {
-      this.markdown.init(this);
-    }
+    this.markdown && this.markdown.init(this);
 
     // stay on the page
-    if (this.config.stay) {
-      this.stay();
-    }
+    this.config.stay && this.stay();
   };
 
   // node effects
@@ -159,9 +150,6 @@
 
     var editor = this.config.editor;
     var toggle = function() {
-
-      if(that._isDestroyed) return;
-
       utils.shift('toggle_menu', function() {
         var range = that._sel;
         if(!range.isCollapsed) {
@@ -181,7 +169,7 @@
     // toggle toolbar on key select
     editor.addEventListener('keyup', toggle);
 
-    // toggle toolbar on key select
+    // work like an editor
     menu.addEventListener('click', function(e) {
       var action = e.target.getAttribute('data-action');
 
@@ -204,16 +192,14 @@
 
         createlink = function(input) {
           input.style.display = 'none';
-          if(input.value) return apply(input.value.replace(/(^\s+)|(\s+$)/g, '').replace(/^(?!http:\/\/|https:\/\/)(.*)$/, 'http://$1'));
+          if(input.value) return apply(input.value.replace(/(^\s+)|(\s+$)/g, ''));
           action = 'unlink';
           apply();
         };
 
-        input.onkeypress = function(e) {
+        return input.onkeypress = function(e) {
           if(e.which === 13) return createlink(e.target);
         };
-
-        return input.onkeypress;
       }
 
       apply();
@@ -227,7 +213,6 @@
     var node = this._sel.focusNode
       , effects = this._effectNode(node)
       , menu = this._menu
-      , linkInput = menu.querySelector('input')
       , highlight;
 
     // remove all highlights
@@ -235,8 +220,8 @@
       el.classList.remove('active');
     });
 
-    // display link input if createlink enabled
-    if (linkInput) linkInput.style.display = 'none';
+    // display link input
+    menu.querySelector('input').style.display = 'none';
 
     highlight = function(str) {
       var selector = '.icon-' + str
@@ -247,24 +232,16 @@
     effects.forEach(function(item) {
       var tag = item.nodeName.toLowerCase();
       switch(tag) {
-        case 'a':
-          return (menu.querySelector('input').value = item.href), highlight('createlink');
-        case 'i':
-          return highlight('italic');
-        case 'u':
-          return highlight('underline');
-        case 'b':
-          return highlight('bold');
-        case 'ul':
-          return highlight('insertunorderedlist');
-        case 'ol':
-          return highlight('insertorderedlist');
-        case 'ol':
-          return highlight('insertorderedlist');
-        case 'li':
-          return highlight('indent');
-        default :
-          highlight(tag);
+        case 'a': return (menu.querySelector('input').value = item.href), highlight('createlink');
+        case 'i': return highlight('italic');
+        case 'u': return highlight('underline');
+        case 'b': return highlight('bold');
+        case 'ul': return highlight('insertunorderedlist');
+        case 'ol': return highlight('insertorderedlist');
+        case 'sup': return highlight('superscript');
+		case 'sub': return highlight('subscript');
+        case 'li': return highlight('indent');
+        default : highlight(tag);
       }
     });
 
@@ -272,14 +249,13 @@
   };
 
   Pen.prototype.actions = function() {
-    var that = this, reg, block, overall, insert;
+    var that = this, reg, block, overall;
 
     // allow command list
     reg = {
       block: /^(?:p|h[1-6]|blockquote|pre)$/,
-      inline: /^(?:bold|italic|underline|insertorderedlist|insertunorderedlist|indent|outdent)$/,
-      source: /^(?:insertimage|createlink|unlink)$/,
-      insert: /^(?:inserthorizontalrule|insert)$/
+      inline: /^(?:bold|italic|underline|insertorderedlist|insertunorderedlist|indent|outdent|inserthorizontalrule|superscript|subscript|JustifyCenter)$/,
+      source: /^(?:insertimage|createlink|unlink)$/
     };
 
     overall = function(cmd, val) {
@@ -289,19 +265,6 @@
       } else {
         utils.log('fail' + message);
       }
-    };
-
-    insert = function(name) {
-      var range = that._sel.getRangeAt(0)
-        , node = range.startContainer;
-
-      while(node.nodeType !== 1) {
-        node = node.parentNode;
-      }
-
-      range.selectNode(node);
-      range.collapse(false);
-      return overall(name);
     };
 
     block = function(name) {
@@ -317,8 +280,6 @@
         block(name);
       } else if(name.match(reg.inline) || name.match(reg.source)) {
         overall(name, value);
-      } else if(name.match(reg.insert)) {
-        insert(name);
       } else {
         if(this.config.debug) utils.log('can not find command function for name: ' + name + (value ? (', value: ' + value) : ''));
       }
@@ -344,30 +305,9 @@
   };
 
   Pen.prototype.stay = function() {
-    var that = this;
-    if (!window.onbeforeunload) {
-      window.onbeforeunload = function() {
-        if(!that._isDestroyed) return 'Are you going to leave here?';
-      };
-    }
-  };
-
-  Pen.prototype.destroy = function(isAJoke) {
-    var destroy = isAJoke ? false : true
-      , attr = isAJoke ? 'setAttribute' : 'removeAttribute';
-
-    if(!isAJoke) {
-      this._sel.removeAllRanges();
-      this._menu.style.display = 'none';
-    }
-    this._isDestroyed = destroy;
-    this.config.editor[attr]('contenteditable', '');
-
-    return this;
-  };
-
-  Pen.prototype.rebuild = function() {
-    return this.destroy('it\'s a joke');
+    !window.onbeforeunload && (window.onbeforeunload = function() {
+      return 'Are you going to leave here?';
+    });
   };
 
   // a fallback for old browers
@@ -386,4 +326,4 @@
   // make it accessible
   this.Pen = doc.getSelection ? Pen : FakePen;
 
-}(document));
+}(document);
